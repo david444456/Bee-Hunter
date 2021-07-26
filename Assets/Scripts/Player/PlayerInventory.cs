@@ -54,6 +54,8 @@ namespace BeeHunter.Player
             return false;
         }
 
+        public Item GetActualItem() => _actualItems[_actualSelectItem];
+
         private bool CheckThisItemExistInInventoryAndAdd(Item item) {
             for (int i = 0; i < _actualItems.Length; i++) {
                 Item it = _actualItems[i];
@@ -76,7 +78,11 @@ namespace BeeHunter.Player
             return false;
         }
 
-        private void AddItemInExistingIndex(int index) => _actualCountItemsByType[index]++;
+        private void AddItemInExistingIndex(int index)
+        {
+            _actualCountItemsByType[index]++;
+            _playerUI.UpdateNewTextCounItemInInventory(index, _actualCountItemsByType[index].ToString());
+        }
 
         private void AddItemInEmptySlot(Item item) {
             for (int i = 0; i < _actualItems.Length; i++)

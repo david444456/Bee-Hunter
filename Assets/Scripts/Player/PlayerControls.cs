@@ -37,9 +37,17 @@ namespace BeeHunter
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""LeftButton"",
                     ""type"": ""Button"",
                     ""id"": ""1414eeb9-a1c5-4d5c-a2fe-afd3e1e9ab64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""11d7327d-1edf-418c-8945-a30a6471c3b0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -242,7 +250,7 @@ namespace BeeHunter
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
+                    ""action"": ""LeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -253,7 +261,7 @@ namespace BeeHunter
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
+                    ""action"": ""LeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -264,7 +272,7 @@ namespace BeeHunter
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
+                    ""action"": ""LeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -275,7 +283,7 @@ namespace BeeHunter
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
+                    ""action"": ""LeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -286,7 +294,7 @@ namespace BeeHunter
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""action"": ""LeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -320,6 +328,61 @@ namespace BeeHunter
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Alpha3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""018b337c-df75-4b95-b854-3b909ecf3392"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""RightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc155328-a48a-48a0-8a0e-7e6cd8e2aee1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""RightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8792bb3b-ef8e-4fd6-8a5e-584dfd86354c"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Touch"",
+                    ""action"": ""RightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aae58638-a7f8-46bc-9fb9-4fd7d98f3976"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""RightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0da6f02-b758-4000-8344-26ed09a463c5"",
+                    ""path"": ""<XRController>/{PrimaryAction}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""RightButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -838,7 +901,8 @@ namespace BeeHunter
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-            m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+            m_Player_LeftButton = m_Player.FindAction("LeftButton", throwIfNotFound: true);
+            m_Player_RightButton = m_Player.FindAction("RightButton", throwIfNotFound: true);
             m_Player_Alpha1 = m_Player.FindAction("Alpha1", throwIfNotFound: true);
             m_Player_Alpha2 = m_Player.FindAction("Alpha2", throwIfNotFound: true);
             m_Player_Alpha3 = m_Player.FindAction("Alpha3", throwIfNotFound: true);
@@ -905,7 +969,8 @@ namespace BeeHunter
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_Look;
-        private readonly InputAction m_Player_Fire;
+        private readonly InputAction m_Player_LeftButton;
+        private readonly InputAction m_Player_RightButton;
         private readonly InputAction m_Player_Alpha1;
         private readonly InputAction m_Player_Alpha2;
         private readonly InputAction m_Player_Alpha3;
@@ -915,7 +980,8 @@ namespace BeeHunter
             public PlayerActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @Look => m_Wrapper.m_Player_Look;
-            public InputAction @Fire => m_Wrapper.m_Player_Fire;
+            public InputAction @LeftButton => m_Wrapper.m_Player_LeftButton;
+            public InputAction @RightButton => m_Wrapper.m_Player_RightButton;
             public InputAction @Alpha1 => m_Wrapper.m_Player_Alpha1;
             public InputAction @Alpha2 => m_Wrapper.m_Player_Alpha2;
             public InputAction @Alpha3 => m_Wrapper.m_Player_Alpha3;
@@ -934,9 +1000,12 @@ namespace BeeHunter
                     @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                     @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                     @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                    @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                    @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                    @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                    @LeftButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftButton;
+                    @LeftButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftButton;
+                    @LeftButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftButton;
+                    @RightButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightButton;
+                    @RightButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightButton;
+                    @RightButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightButton;
                     @Alpha1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlpha1;
                     @Alpha1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlpha1;
                     @Alpha1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlpha1;
@@ -956,9 +1025,12 @@ namespace BeeHunter
                     @Look.started += instance.OnLook;
                     @Look.performed += instance.OnLook;
                     @Look.canceled += instance.OnLook;
-                    @Fire.started += instance.OnFire;
-                    @Fire.performed += instance.OnFire;
-                    @Fire.canceled += instance.OnFire;
+                    @LeftButton.started += instance.OnLeftButton;
+                    @LeftButton.performed += instance.OnLeftButton;
+                    @LeftButton.canceled += instance.OnLeftButton;
+                    @RightButton.started += instance.OnRightButton;
+                    @RightButton.performed += instance.OnRightButton;
+                    @RightButton.canceled += instance.OnRightButton;
                     @Alpha1.started += instance.OnAlpha1;
                     @Alpha1.performed += instance.OnAlpha1;
                     @Alpha1.canceled += instance.OnAlpha1;
@@ -1081,7 +1153,8 @@ namespace BeeHunter
         {
             void OnMove(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
-            void OnFire(InputAction.CallbackContext context);
+            void OnLeftButton(InputAction.CallbackContext context);
+            void OnRightButton(InputAction.CallbackContext context);
             void OnAlpha1(InputAction.CallbackContext context);
             void OnAlpha2(InputAction.CallbackContext context);
             void OnAlpha3(InputAction.CallbackContext context);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,11 @@ namespace BeeHunter.Core
     {
         [SerializeField] Item _actualItem;
 
-        void Start()
-        {
-
-        }
-
         public Item GetActualItem() => _actualItem;
+
+        public void DesactiveObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

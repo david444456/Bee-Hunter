@@ -12,6 +12,8 @@ namespace BeeHunter.Player {
         PlayerUI _playerUI;
         PlayerBeeInput _playerInput;
 
+        ControlItemObject _actualControlItemTouch;
+
         void Start()
         {
             _playerInventory = GetComponent<PlayerInventory>();
@@ -20,6 +22,7 @@ namespace BeeHunter.Player {
 
             //input
             _playerInput.rightClickMouseEvent += InteractWithItemTouch;
+            _playerInput.leftClickMouseEvent += PushItemInventoryToOutside;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -27,7 +30,10 @@ namespace BeeHunter.Player {
             print("Col" + other.gameObject.name);
             if (other.gameObject.tag == "Item")
             {
-                _newItemTouch = other.gameObject.GetComponent<ControlItemObject>().GetActualItem();
+                _actualControlItemTouch = other.gameObject.GetComponent<ControlItemObject>();
+
+                _newItemTouch = _actualControlItemTouch.GetActualItem();
+
                 _playerUI.ChangeStateTouchNewItemUI(true);
             }
         }
@@ -41,10 +47,23 @@ namespace BeeHunter.Player {
             }
         }
 
+        private void PushItemInventoryToOutside() {
+            Item it = _playerInventory.GetActualItem();
+            if (it.GetActualIndexItem() == 0) return;
+
+            //push item
+            Instantiate( it.GetActualGOPrefab(), transform.position, Quaternion.identity);
+            //substract value in the inventory
+        }
+
         private void InteractWithItemTouch() {
             if (_newItemTouch == null) return;
             print(_newItemTouch.GetNameItem());
-            _playerInventory.PickUpNewItem(_newItemTouch);
+
+            if (_playerInventory.PickUpNewItem(_newItemTouch)) {
+                _actualControlItemTouch.DesactiveObject();
+                _newItemTouch = null;
+            }
         }
     }
 }

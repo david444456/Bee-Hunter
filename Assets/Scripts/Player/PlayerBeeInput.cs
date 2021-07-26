@@ -9,6 +9,7 @@ namespace BeeHunter.Player
     {
         public Action<int> alphaNumbersButtonEvent = delegate { };
         public Action rightClickMouseEvent = delegate { };
+        public Action leftClickMouseEvent = delegate { };
 
         private PlayerActionControls playerActionControls;
 
@@ -25,14 +26,15 @@ namespace BeeHunter.Player
         void Update()
         {
             CheckTouchButtonsInventory();
-            CheckTouchRightClickMouse();
+            CheckTouchClickMouse();
         }
 
         //inputs
         private bool OneAlphaInput() => playerActionControls.Player.Alpha1.ReadValue<float>() != 0.0f;
         private bool TwoAlphaInput() => playerActionControls.Player.Alpha2.ReadValue<float>() != 0.0f;
         private bool ThreeAlphaInput() => playerActionControls.Player.Alpha3.ReadValue<float>() != 0.0f;
-        private bool RightClickMouseInput() => playerActionControls.Player.Fire.ReadValue<float>() != 0.0f;
+        private bool RightClickMouseInput() => playerActionControls.Player.RightButton.ReadValue<float>() != 0.0f;
+        private bool LeftClickMouseInput() => playerActionControls.Player.LeftButton.ReadValue<float>() != 0.0f;
 
         //checks
         private void CheckTouchButtonsInventory() {
@@ -41,8 +43,9 @@ namespace BeeHunter.Player
             else if (ThreeAlphaInput()) alphaNumbersButtonEvent.Invoke(2);
         }
 
-        private void CheckTouchRightClickMouse() {
+        private void CheckTouchClickMouse() {
             if (RightClickMouseInput()) rightClickMouseEvent.Invoke();
+            else if (LeftClickMouseInput()) leftClickMouseEvent.Invoke();
         }
     }
 }

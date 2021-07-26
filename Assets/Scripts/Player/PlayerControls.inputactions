@@ -22,9 +22,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Fire",
+                    "name": "LeftButton",
                     "type": "Button",
                     "id": "1414eeb9-a1c5-4d5c-a2fe-afd3e1e9ab64",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightButton",
+                    "type": "Button",
+                    "id": "11d7327d-1edf-418c-8945-a30a6471c3b0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -227,7 +235,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Fire",
+                    "action": "LeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -238,7 +246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "LeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -249,7 +257,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "Fire",
+                    "action": "LeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -260,7 +268,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Fire",
+                    "action": "LeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -271,7 +279,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Fire",
+                    "action": "LeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -305,6 +313,61 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Alpha3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "018b337c-df75-4b95-b854-3b909ecf3392",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "RightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc155328-a48a-48a0-8a0e-7e6cd8e2aee1",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "RightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8792bb3b-ef8e-4fd6-8a5e-584dfd86354c",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "RightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aae58638-a7f8-46bc-9fb9-4fd7d98f3976",
+                    "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "RightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0da6f02-b758-4000-8344-26ed09a463c5",
+                    "path": "<XRController>/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "RightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

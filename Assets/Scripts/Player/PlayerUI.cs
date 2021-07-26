@@ -10,6 +10,7 @@ namespace BeeHunter.Player
     {
         [Header("Inventory")]
         [SerializeField] Image[] imagesByItemsInInventory;
+        [SerializeField] Text[] textCountItemsInInventory;
 
         [Header("Interact")]
         [SerializeField] GameObject GOInteractWithObjectUI;
@@ -21,6 +22,11 @@ namespace BeeHunter.Player
 
         public void UpdateNewItemInInventory(int index, Sprite sprite) {
             imagesByItemsInInventory[index].sprite = sprite;
+            UpdateNewTextCounItemInInventory(index, "1");
+        }
+
+        public void UpdateNewTextCounItemInInventory(int index, string newTextValue) {
+            textCountItemsInInventory[index].text = newTextValue;
         }
 
         public void ChangeStateTouchNewItemUI(bool newValue) => GOInteractWithObjectUI.SetActive(newValue);
