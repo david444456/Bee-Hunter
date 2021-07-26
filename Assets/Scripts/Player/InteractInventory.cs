@@ -6,7 +6,12 @@ using UnityEngine;
 namespace BeeHunter.Player {
     public class InteractInventory : MonoBehaviour
     {
+
         [SerializeField] Item _newItemTouch;
+
+        [Header("Inventory interact")]
+        [SerializeField] Transform _itemTFPositionSpawn;
+        [SerializeField] float _forceSpawn;
 
         PlayerInventory _playerInventory;
         PlayerUI _playerUI;
@@ -52,8 +57,10 @@ namespace BeeHunter.Player {
             if (it.GetActualIndexItem() == 0) return;
 
             //push item
-            Instantiate( it.GetActualGOPrefab(), transform.position, Quaternion.identity);
+            GameObject GONewItem = Instantiate( it.GetActualGOPrefab(), _itemTFPositionSpawn.transform.position, Quaternion.identity);
+            GONewItem.GetComponent<Rigidbody>().AddForce(Vector3.forward * _forceSpawn, ForceMode.Force);
             //substract value in the inventory
+            _playerInventory.SubstractValueInInventory();
         }
 
         private void InteractWithItemTouch() {

@@ -56,6 +56,18 @@ namespace BeeHunter.Player
 
         public Item GetActualItem() => _actualItems[_actualSelectItem];
 
+        public void SubstractValueInInventory() {
+            _actualCountItemsByType[_actualSelectItem]--;
+            if (_actualCountItemsByType[_actualSelectItem] <= 0)
+            { 
+                _actualItems[_actualSelectItem] = emptyItem;
+                _playerUI.UpdateNewItemInInventory(_actualSelectItem, emptyItem.GetActualSpriteByItem());
+            }
+
+            UpdateTextInventory(_actualSelectItem);
+
+        }
+
         private bool CheckThisItemExistInInventoryAndAdd(Item item) {
             for (int i = 0; i < _actualItems.Length; i++) {
                 Item it = _actualItems[i];
@@ -81,7 +93,7 @@ namespace BeeHunter.Player
         private void AddItemInExistingIndex(int index)
         {
             _actualCountItemsByType[index]++;
-            _playerUI.UpdateNewTextCounItemInInventory(index, _actualCountItemsByType[index].ToString());
+            UpdateTextInventory(index);
         }
 
         private void AddItemInEmptySlot(Item item) {
@@ -91,6 +103,7 @@ namespace BeeHunter.Player
                     _actualItems[i] = item;
                     _actualCountItemsByType[i]++;
                     _playerUI.UpdateNewItemInInventory(i, item.GetActualSpriteByItem());
+                    UpdateTextInventory(i);
                     return;
                 }
             }
@@ -100,6 +113,8 @@ namespace BeeHunter.Player
             print("The new select item is: " + newSelectItem);
             if(InRange(newSelectItem)) _actualSelectItem = newSelectItem;
         }
+
+        private void UpdateTextInventory(int index) => _playerUI.UpdateNewTextCounItemInInventory(index, _actualCountItemsByType[index].ToString());
 
         private bool InRange(int value) => value >= 0 && value < maxItemsInventory;
     }

@@ -22,7 +22,6 @@ namespace BeeHunter.Player
 
         public void UpdateNewItemInInventory(int index, Sprite sprite) {
             imagesByItemsInInventory[index].sprite = sprite;
-            UpdateNewTextCounItemInInventory(index, "1");
         }
 
         public void UpdateNewTextCounItemInInventory(int index, string newTextValue) {

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actualIndex: 1
   _spriteItem: {fileID: 21300000, guid: 751aa1b6637101946b2fdbb7aa27d6ad, type: 3}
+  _ActualPrefabPickItem: {fileID: 2610760291762516757, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}

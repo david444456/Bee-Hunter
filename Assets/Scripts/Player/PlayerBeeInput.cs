@@ -7,11 +7,15 @@ namespace BeeHunter.Player
 {
     public class PlayerBeeInput : MonoBehaviour
     {
+        [SerializeField] float _maxTimeBetweenLeftClick = 1;
+
         public Action<int> alphaNumbersButtonEvent = delegate { };
         public Action rightClickMouseEvent = delegate { };
         public Action leftClickMouseEvent = delegate { };
 
         private PlayerActionControls playerActionControls;
+
+        private float _timeLastLeftClick = 0;
 
         private void Awake()
         {
@@ -27,6 +31,8 @@ namespace BeeHunter.Player
         {
             CheckTouchButtonsInventory();
             CheckTouchClickMouse();
+
+            _timeLastLeftClick += Time.deltaTime;
         }
 
         //inputs
@@ -45,7 +51,11 @@ namespace BeeHunter.Player
 
         private void CheckTouchClickMouse() {
             if (RightClickMouseInput()) rightClickMouseEvent.Invoke();
-            else if (LeftClickMouseInput()) leftClickMouseEvent.Invoke();
+            else if (LeftClickMouseInput() && _timeLastLeftClick > _maxTimeBetweenLeftClick)
+            {
+                _timeLastLeftClick = 0;
+                leftClickMouseEvent.Invoke();
+            }
         }
     }
 }
