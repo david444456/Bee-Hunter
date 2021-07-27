@@ -9,8 +9,10 @@ namespace BeeHunter.Core
     {
         [SerializeField] BeeItem _actualBeeItem;
 
-        ControlItemObject controlItem;
-        Container _mainContainer;
+        private ControlItemObject controlItem;
+
+        private bool _beeInContainer = false;
+        private Container _mainContainer;
 
         void Start()
         {
@@ -21,6 +23,7 @@ namespace BeeHunter.Core
         }
 
         public void ReceiveInformationFromContainer(Container newCont) {
+            _beeInContainer = true;
             _mainContainer = newCont;
         }
 
@@ -28,7 +31,9 @@ namespace BeeHunter.Core
 
         private void DesactiveObjectInformToMainContainer()
         {
-            if(_mainContainer != null)
+            controlItem.DesactiveObjectEvent -= DesactiveObjectInformToMainContainer;
+
+            if (_mainContainer != null)
                 _mainContainer.RemoveObjectFromList(this);
         }
     }

@@ -16,10 +16,5 @@ namespace BeeHunter.Attributes
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
-
-        void Update()
-        {
-
-        }
     }
 }

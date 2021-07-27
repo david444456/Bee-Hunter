@@ -11,6 +11,7 @@ namespace BeeHunter.Player
         [Header("Inventory")]
         [SerializeField] Image[] imagesByItemsInInventory;
         [SerializeField] Text[] textCountItemsInInventory;
+        [SerializeField] RectTransform transformImageActualSelectInventory;
 
         [Header("Interact")]
         [SerializeField] GameObject GOInteractWithObjectUI;
@@ -18,6 +19,11 @@ namespace BeeHunter.Player
         void Start()
         {
 
+        }
+
+        public void ChangeSelectionUIInventory(int index) {
+            print(index);
+            transformImageActualSelectInventory.anchoredPosition = imagesByItemsInInventory[index].rectTransform.anchoredPosition;
         }
 
         public void UpdateNewItemInInventory(int index, Sprite sprite) {

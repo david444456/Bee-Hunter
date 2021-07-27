@@ -95,6 +95,8 @@ namespace BeeHunter.Player
         {
             if(_maxCountItemByType > _actualCountItemsByType[index])
                 _actualCountItemsByType[index]++;
+
+            //ui
             UpdateTextInventory(index);
         }
 
@@ -102,8 +104,11 @@ namespace BeeHunter.Player
             for (int i = 0; i < _actualItems.Length; i++)
             {
                 if (_actualCountItemsByType[i] == 0) {
+                    //new item
                     _actualItems[i] = item;
                     _actualCountItemsByType[i]++;
+                    
+                    //ui
                     _playerUI.UpdateNewItemInInventory(i, item.GetActualSpriteByItem());
                     UpdateTextInventory(i);
                     return;
@@ -112,8 +117,10 @@ namespace BeeHunter.Player
         }
 
         private void ChangeSelectItem(int newSelectItem) {
-            print("The new select item is: " + newSelectItem);
+            
             if(InRange(newSelectItem)) _actualSelectItem = newSelectItem;
+            //ui
+            _playerUI.ChangeSelectionUIInventory(newSelectItem);
         }
 
         private void UpdateTextInventory(int index) => _playerUI.UpdateNewTextCounItemInInventory(index, _actualCountItemsByType[index].ToString());
