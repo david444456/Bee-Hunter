@@ -32,7 +32,6 @@ namespace BeeHunter.Player {
 
         private void OnTriggerEnter(Collider other)
         {
-            print("Col" + other.gameObject.name);
             if (other.gameObject.tag == "Item")
             {
                 _actualControlItemTouch = other.gameObject.GetComponent<ControlItemObject>();
@@ -58,17 +57,17 @@ namespace BeeHunter.Player {
 
             //push item
             GameObject GONewItem = Instantiate( it.GetActualGOPrefab(), _itemTFPositionSpawn.transform.position, Quaternion.identity);
-            GONewItem.GetComponent<Rigidbody>().AddForce(Vector3.forward * _forceSpawn, ForceMode.Force);
+            GONewItem.GetComponent<Rigidbody>().AddForce(transform.forward * _forceSpawn, ForceMode.Force);
             //substract value in the inventory
             _playerInventory.SubstractValueInInventory();
         }
 
         private void InteractWithItemTouch() {
             if (_newItemTouch == null) return;
-            print(_newItemTouch.GetNameItem());
 
             if (_playerInventory.PickUpNewItem(_newItemTouch)) {
                 _actualControlItemTouch.DesactiveObject();
+                _playerUI.ChangeStateTouchNewItemUI(false);
                 _newItemTouch = null;
             }
         }

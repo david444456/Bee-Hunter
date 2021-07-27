@@ -14,6 +14,7 @@ namespace BeeHunter.Player
         int[] _actualCountItemsByType;
 
         int _actualSelectItem = 0;
+        int _maxCountItemByType = 0;
 
         PlayerBeeInput _playerInput;
         PlayerUI _playerUI;
@@ -92,7 +93,8 @@ namespace BeeHunter.Player
 
         private void AddItemInExistingIndex(int index)
         {
-            _actualCountItemsByType[index]++;
+            if(_maxCountItemByType > _actualCountItemsByType[index])
+                _actualCountItemsByType[index]++;
             UpdateTextInventory(index);
         }
 
