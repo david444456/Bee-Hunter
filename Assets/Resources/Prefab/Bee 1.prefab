@@ -40,6 +40,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3909107784874813640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610760291762516757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b13837af30e8a942b5defa74e001e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedFractionXZ: 0.2
+  _speedFractionY: 0.005
+  _heightToUp: 5
+  _maxTimeBetweenGetFood: 5
+  _maxTimeToChangeMoveNormal: 4
 --- !u!114 &4880399020755243839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +87,6 @@ MonoBehaviour:
   maxSpeed: 6
   maxAceleration: 50
   maxNavPathLenght: 40
-  _heightToUp: 5
   _transformBeeMesh: {fileID: 2610760291278088765}
 --- !u!1001 &6465276795945230442
 PrefabInstance:

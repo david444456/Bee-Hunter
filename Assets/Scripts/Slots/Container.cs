@@ -12,6 +12,8 @@ namespace BeeHunter.Slots
         [SerializeField] GameObject _diaperGO; 
 
         List<ControlInfoBee> _actualTotalBee = new List<ControlInfoBee>();
+        List<GameObject> _actualTotalFlowers = new List<GameObject>();
+        List<bool> _actualRequestedFlowers = new List<bool>();
         TypeBee _typeBeeActualContainter;
 
         private void OnTriggerEnter(Collider other)
@@ -29,7 +31,7 @@ namespace BeeHunter.Slots
                     AddBeeToActualBees(newBee, newInfoBee);
                 }
 
-                newInfoBee.ReceiveInformationFromContainer(this);
+                newInfoBee.ReceiveInformationFromContainer(this, _limitsToContainer, _diaperGO);
                 //communicate with bee to informate that she is in a container, the dimension
                 //comunnicate info about diaper
             }
@@ -39,6 +41,28 @@ namespace BeeHunter.Slots
             print("Remove object!");
             _actualTotalBee.Remove(controlInfoBee);
         }
+
+        public GameObject GetFlowerGameObject() {
+
+            for (int i = 0; i < GetTotalFlowers(); i++) {
+                if (!_actualRequestedFlowers[i]) {
+                    _actualRequestedFlowers[i] = true;
+                    return _actualTotalFlowers[i];
+                }
+            }
+
+            return null;
+        }
+
+        public bool GetIfThereAreOneFlowerWaiting() {
+            for (int i = 0; i < GetTotalFlowers(); i++)
+            {
+                if (!_actualRequestedFlowers[i]) return true;
+            }
+            return false;
+        }
+
+        public int GetTotalFlowers() => _actualTotalFlowers.Count;
 
         private void AddBeeToActualBees(BeeItem newBee, ControlInfoBee controlInfoBee)
         {
