@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace BeeHunter.Attributes
 
         private void Update()
         {
+
             if ( _transformBeeMesh.transform.position != _destionationY)
             {
                 _transformBeeMesh.transform.localPosition = Vector3.MoveTowards(

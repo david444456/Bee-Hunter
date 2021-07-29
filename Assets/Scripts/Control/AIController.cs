@@ -17,10 +17,12 @@ namespace BeeHunter.Control
         [SerializeField] float _heightToUp = 5;
         [SerializeField] float _maxTimeBetweenGetFood = 5;
         [SerializeField] float _maxTimeToChangeMoveNormal = 4;
+        [SerializeField] float _distanceStop = 3;
 
         ControlInfoBee controlInfo;
         BeeMove move;
         Container container;
+        BeeUI beeUI;
 
         private float timeSinceLastFood = Mathf.Infinity;
         private float timeSinceChangeMovementNormal = Mathf.Infinity;
@@ -30,18 +32,22 @@ namespace BeeHunter.Control
         private StateBee _actualStateBee;
         private Vector3 _lastMoveDirectionXZ = Vector3.zero;
         private Vector3 _lastMoveDirectionY = Vector3.zero;
+        private Vector3 _lastPositionActiveFlower = Vector3.zero;
 
 
         void Start()
         {
             controlInfo = GetComponent<ControlInfoBee>();
             move = GetComponent<BeeMove>();
+            beeUI = GetComponent<BeeUI>();
 
             controlInfo.ChangeStateBeeInContainerEvent += ChangeBeeInContainer;
         }
 
         private void Update()
         {
+            if (_actualStateBee == StateBee.Waiting) return;
+
             if (_actualStateBee == StateBee.Normal)
             {
                 if (_maxTimeBetweenGetFood < timeSinceLastFood && VerificatedIfThereAreFoodInTheArea())
@@ -58,18 +64,38 @@ namespace BeeHunter.Control
                         //change movement random
                         ChangeMovementRandomBee();
                         timeSinceChangeMovementNormal = 0;
-                    }  
+                    }
                 }
             }
-            else if (_actualStateBee == StateBee.Food) {
+            else if (_actualStateBee == StateBee.Food)
+            {
 
                 //get position of the food
                 GameObject newFlower = container.GetFlowerGameObject();
 
-                //set movement to this direction
+                //distance
+                if (Vector3.Distance(transform.position, _lastPositionActiveFlower) < _distanceStop)
+                {
+                    print("Distance!");
+                    ChangeStateBee(StateBee.Waiting);
+                    beeUI.ChangeAnimationToRecolectingFood();
+                }
 
+                //null
+                if (newFlower == null) return;
+
+                //set movement to this direction
+                _lastPositionActiveFlower = newFlower.transform.position;
+                _lastMoveDirectionXZ = _lastPositionActiveFlower;
+                move.StartMoveAction(_lastPositionActiveFlower, _speedFractionXZ);
+
+                //up down direction
+                _lastMoveDirectionY = new Vector3(0, newFlower.transform.position.y, 0);
+                print(_lastMoveDirectionY);
+                StartMoveUpDirection();
 
             }
+            else if (_actualStateBee == StateBee.Pollen) print("I am polling");
 
             //movement
 
@@ -175,6 +201,7 @@ namespace BeeHunter.Control
     public enum StateBee { 
         Normal,
         Food,
-        Pollen
+        Pollen,
+        Waiting
     }
 }

@@ -12,12 +12,15 @@ namespace BeeHunter.Player {
         [Header("Inventory interact")]
         [SerializeField] Transform _itemTFPositionSpawn;
         [SerializeField] float _forceSpawn;
+        [SerializeField] float _timeMaxBetweenPickItem = 0.5f;
 
         PlayerInventory _playerInventory;
         PlayerUI _playerUI;
         PlayerBeeInput _playerInput;
 
         ControlItemObject _actualControlItemTouch;
+
+        private float _timeLastPickItem = 0;
 
         void Start()
         {
@@ -28,6 +31,11 @@ namespace BeeHunter.Player {
             //input
             _playerInput.rightClickMouseEvent += InteractWithItemTouch;
             _playerInput.leftClickMouseEvent += PushItemInventoryToOutside;
+        }
+
+        private void Update()
+        {
+            _timeLastPickItem += Time.deltaTime;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -64,12 +72,20 @@ namespace BeeHunter.Player {
 
         private void InteractWithItemTouch() {
             if (_newItemTouch == null) return;
+            if (_timeMaxBetweenPickItem > _timeLastPickItem) return;
 
             if (_playerInventory.PickUpNewItem(_newItemTouch)) {
                 _actualControlItemTouch.DesactiveObject();
                 _playerUI.ChangeStateTouchNewItemUI(false);
                 _newItemTouch = null;
             }
+
+            //time 
+            _timeLastPickItem = 0;
+
+            //desactive and active the collider
+            GetComponent<CharacterController>().enabled = false;
+            GetComponent<CharacterController>().enabled = true;
         }
     }
 }

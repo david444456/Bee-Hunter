@@ -22,7 +22,6 @@ namespace BeeHunter.Player
         }
 
         public void ChangeSelectionUIInventory(int index) {
-            print(index);
             transformImageActualSelectInventory.anchoredPosition = imagesByItemsInInventory[index].rectTransform.anchoredPosition;
         }
 

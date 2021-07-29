@@ -18,13 +18,14 @@ namespace BeeHunter.Slots
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Bee") {
+            if (other.tag == "Bee")
+            {
                 ControlInfoBee newInfoBee = other.GetComponentInParent<ControlInfoBee>();
                 BeeItem newBee = newInfoBee.GetActualBeeItem();
 
                 print("New detecting");
                 //add bee
-                if (_actualTotalBee.Count <= 0) 
+                if (_actualTotalBee.Count <= 0)
                     CreateNewTypeOfBee(newBee, newInfoBee);
                 else
                 {
@@ -35,11 +36,21 @@ namespace BeeHunter.Slots
                 //communicate with bee to informate that she is in a container, the dimension
                 //comunnicate info about diaper
             }
+            else if (other.tag == "Flower") {
+                _actualTotalFlowers.Add(other.gameObject);
+                _actualRequestedFlowers.Add(false);
+            }
         }
 
-        public void RemoveObjectFromList(ControlInfoBee controlInfoBee) {
+        public void RemoveBeeObjectFromList(ControlInfoBee controlInfoBee) {
             print("Remove object!");
             _actualTotalBee.Remove(controlInfoBee);
+        }
+
+        public void RemoveFlowerObjectFromList(GameObject flowerGO) {
+            int index = _actualTotalFlowers.IndexOf(flowerGO);
+            _actualTotalFlowers.Remove(flowerGO);
+            _actualRequestedFlowers.RemoveAt(index);
         }
 
         public GameObject GetFlowerGameObject() {

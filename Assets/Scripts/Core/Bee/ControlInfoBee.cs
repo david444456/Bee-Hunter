@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BeeHunter.Core
 {
-    public class ControlInfoBee : MonoBehaviour
+    public class ControlInfoBee : MonoBehaviour, IDesactiveItemObject
     {
         public Action<bool> ChangeStateBeeInContainerEvent = delegate { };
         [SerializeField] BeeItem _actualBeeItem;
@@ -40,12 +40,12 @@ namespace BeeHunter.Core
 
         public BeeItem GetActualBeeItem() => _actualBeeItem;
 
-        private void DesactiveObjectInformToMainContainer()
+        public void DesactiveObjectInformToMainContainer()
         {
             controlItem.DesactiveObjectEvent -= DesactiveObjectInformToMainContainer;
 
             if (_mainContainer != null)
-                _mainContainer.RemoveObjectFromList(this);
+                _mainContainer.RemoveBeeObjectFromList(this);
         }
     }
 }
