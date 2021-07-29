@@ -53,6 +53,11 @@ namespace BeeHunter.Slots
             _actualRequestedFlowers.RemoveAt(index);
         }
 
+        public void ReturnFlowerToUnrequested(GameObject flower) {
+            int index = _actualTotalFlowers.IndexOf(flower);
+            _actualRequestedFlowers[index] = false;
+        }
+
         public GameObject GetFlowerGameObject() {
 
             for (int i = 0; i < GetTotalFlowers(); i++) {

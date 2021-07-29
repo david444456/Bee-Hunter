@@ -8,7 +8,7 @@ using System;
 
 namespace BeeHunter.Control
 {
-    public class AIController : MonoBehaviour
+    public class AIController : MonoBehaviour, IDesactiveItemObject
     {
         [SerializeField] float _speedFractionXZ = 0.2f;
         [SerializeField] float _speedFractionY = 0.05f;
@@ -33,6 +33,7 @@ namespace BeeHunter.Control
         private Vector3 _lastMoveDirectionXZ = Vector3.zero;
         private Vector3 _lastMoveDirectionY = Vector3.zero;
         private Vector3 _lastPositionActiveFlower = Vector3.zero;
+        private GameObject _GOLastFlower = null;
 
 
         void Start()
@@ -42,6 +43,7 @@ namespace BeeHunter.Control
             beeUI = GetComponent<BeeUI>();
 
             controlInfo.ChangeStateBeeInContainerEvent += ChangeBeeInContainer;
+            GetComponent<ControlItemObject>().DesactiveObjectEvent += DesactiveObjectInformToMainContainer;
         }
 
         private void Update()
@@ -87,20 +89,28 @@ namespace BeeHunter.Control
                 //set movement to this direction
                 _lastPositionActiveFlower = newFlower.transform.position;
                 _lastMoveDirectionXZ = _lastPositionActiveFlower;
+                _GOLastFlower = newFlower;
                 move.StartMoveAction(_lastPositionActiveFlower, _speedFractionXZ);
 
                 //up down direction
                 _lastMoveDirectionY = new Vector3(0, newFlower.transform.position.y, 0);
-                print(_lastMoveDirectionY);
                 StartMoveUpDirection();
 
             }
-            else if (_actualStateBee == StateBee.Pollen) print("I am polling");
+            else if (_actualStateBee == StateBee.Pollen) { 
+                
+                print("I am polling"); 
+            }
 
-            //movement
-
+            //time values
             timeSinceLastFood += Time.deltaTime;
             timeSinceChangeMovementNormal += Time.deltaTime;
+        }
+
+        public void DesactiveObjectInformToMainContainer()
+        {
+            if(_GOLastFlower != null)
+                container.ReturnFlowerToUnrequested(_GOLastFlower);
         }
 
         private bool VerificatedIfThereAreFoodInTheArea() {
