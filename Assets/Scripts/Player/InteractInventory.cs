@@ -65,7 +65,15 @@ namespace BeeHunter.Player {
 
             //push item
             GameObject GONewItem = Instantiate( it.GetActualGOPrefab(), _itemTFPositionSpawn.transform.position, Quaternion.identity);
-            GONewItem.GetComponent<Rigidbody>().AddForce(transform.forward * _forceSpawn, ForceMode.Force);
+
+            //ramdon force
+            float _randomForce = UnityEngine.Random.Range(0.5f, 0.8f);
+
+            //force
+            GONewItem.GetComponent<Rigidbody>().AddForce(transform.forward * _randomForce * _forceSpawn , ForceMode.Force);
+
+
+
             //substract value in the inventory
             _playerInventory.SubstractValueInInventory();
         }

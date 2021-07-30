@@ -9,7 +9,9 @@ namespace BeeHunter.Slots
     public class Container : MonoBehaviour
     {
         [SerializeField] Transform[] _limitsToContainer;
-        [SerializeField] GameObject _diaperGO; 
+        [SerializeField] GameObject _diaperGO;
+        [SerializeField] GameObject _honeyGO;
+        [SerializeField] float _forceSpawn = 250f;
 
         List<ControlInfoBee> _actualTotalBee = new List<ControlInfoBee>();
         List<GameObject> _actualTotalFlowers = new List<GameObject>();
@@ -58,6 +60,28 @@ namespace BeeHunter.Slots
             _actualRequestedFlowers[index] = false;
         }
 
+        public void InstantiateNewHoney(GameObject GOactualDiaper) {
+            GameObject honey = Instantiate(_honeyGO, GOactualDiaper.transform.position, Quaternion.identity);
+
+            //ramdon force
+            float x = UnityEngine.Random.Range(0, 1.0f);
+            float y = UnityEngine.Random.Range(0, 1.0f);
+            float z = UnityEngine.Random.Range(0, 1.0f);
+            Vector3 newRandomVector = 
+                new Vector3(x, y, z);
+
+            honey.GetComponent<Rigidbody>().AddForce(newRandomVector * _forceSpawn, ForceMode.Impulse);
+        }
+
+        public void FinishJobWithFlower(GameObject GOflower) {
+            print(GOflower.name);
+            bool res = GOflower.GetComponentInParent<ControlFlower>().NewJobFinishedWithThisFlower_ReturnIfFlowerDie();
+            if (!res)
+                ReturnFlowerToUnrequested(GOflower);
+            else
+                RemoveFlowerObjectFromList(GOflower);
+        }
+
         public GameObject GetFlowerGameObject() {
 
             for (int i = 0; i < GetTotalFlowers(); i++) {
@@ -69,6 +93,8 @@ namespace BeeHunter.Slots
 
             return null;
         }
+
+        public GameObject GetActualDiaper() => _diaperGO;
 
         public bool GetIfThereAreOneFlowerWaiting() {
             for (int i = 0; i < GetTotalFlowers(); i++)

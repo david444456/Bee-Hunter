@@ -10,6 +10,7 @@ namespace BeeHunter.Control
 {
     public class AIController : MonoBehaviour, IDesactiveItemObject
     {
+        [SerializeField] Transform[] _limitsBeeInNature;
         [SerializeField] float _speedFractionXZ = 0.2f;
         [SerializeField] float _speedFractionY = 0.05f;
 
@@ -32,8 +33,8 @@ namespace BeeHunter.Control
         private StateBee _actualStateBee;
         private Vector3 _lastMoveDirectionXZ = Vector3.zero;
         private Vector3 _lastMoveDirectionY = Vector3.zero;
-        private Vector3 _lastPositionActiveFlower = Vector3.zero;
         private GameObject _GOLastFlower = null;
+        private GameObject _GOLastDiaper = null;
 
 
         void Start()
@@ -73,33 +74,52 @@ namespace BeeHunter.Control
             {
 
                 //get position of the food
-                GameObject newFlower = container.GetFlowerGameObject();
+                if (_GOLastFlower == null) { 
+                    GameObject newFlower = container.GetFlowerGameObject();
+                    _GOLastFlower = newFlower;
+                }
 
                 //distance
-                if (Vector3.Distance(transform.position, _lastPositionActiveFlower) < _distanceStop)
+                if (_GOLastFlower == null) return;
+
+                //ai
+                if (GetIsDistanceLessThanStop(_GOLastFlower))
                 {
                     print("Distance!");
+                    //states
                     ChangeStateBee(StateBee.Waiting);
+                    
+                    //counts flower and unrequested
+                    container.FinishJobWithFlower(_GOLastFlower);
+
+                    //animation
                     beeUI.ChangeAnimationToRecolectingFood();
                 }
 
-                //null
-                if (newFlower == null) return;
+                AIMovementBee(_GOLastFlower, _GOLastFlower.transform.position);
 
-                //set movement to this direction
-                _lastPositionActiveFlower = newFlower.transform.position;
-                _lastMoveDirectionXZ = _lastPositionActiveFlower;
-                _GOLastFlower = newFlower;
-                move.StartMoveAction(_lastPositionActiveFlower, _speedFractionXZ);
-
-                //up down direction
-                _lastMoveDirectionY = new Vector3(0, newFlower.transform.position.y, 0);
                 StartMoveUpDirection();
 
             }
-            else if (_actualStateBee == StateBee.Pollen) { 
-                
-                print("I am polling"); 
+            else if (_actualStateBee == StateBee.Pollen) {
+                print("I am polling");
+                if (_GOLastDiaper == null) _GOLastDiaper = container.GetActualDiaper();
+
+                //distance
+                if (_GOLastDiaper == null) return;
+
+                //ai
+                if (GetIsDistanceLessThanStop(_GOLastDiaper))
+                {
+                    print("Bring a food!");
+                    ChangeStateBee(StateBee.Waiting);
+                    beeUI.ChangeAnimationToWorkWithDiaper();
+                }
+
+                //ai
+                AIMovementBee(_GOLastDiaper, _GOLastDiaper.transform.position);
+                StartMoveUpDirection();
+                print("I am polling 2");
             }
 
             //time values
@@ -113,6 +133,25 @@ namespace BeeHunter.Control
                 container.ReturnFlowerToUnrequested(_GOLastFlower);
         }
 
+        private void AnimationFinishWorkWithDiaper() {
+            ChangeStateBee(StateBee.Normal);
+            container.InstantiateNewHoney(_GOLastDiaper);
+        }
+
+        private void AIMovementBee(GameObject GOvalue, Vector3 positionToMove)
+        {
+
+            //set movement to this direction
+            _lastMoveDirectionXZ = positionToMove;
+
+            CallToStartMoveAction(positionToMove);
+
+            //up down direction
+            _lastMoveDirectionY = new Vector3(0, GOvalue.transform.position.y, 0);
+        }
+
+        private Vector3 GetVectorConvertedWithZeroY(Vector3 newVector) => new Vector3(newVector.x, 0, newVector.z);
+
         private bool VerificatedIfThereAreFoodInTheArea() {
             if (_beeInContainer)
             {
@@ -120,6 +159,7 @@ namespace BeeHunter.Control
                 return container.GetIfThereAreOneFlowerWaiting();
             }
             else {
+
                 //verificated if there are in the limits around the world
                 return false;
             }
@@ -145,6 +185,9 @@ namespace BeeHunter.Control
             return res;
         }
 
+        private bool GetIsDistanceLessThanStop(GameObject GOValue)
+            => Vector3.Distance(transform.position, GOValue.transform.position) < _distanceStop;
+
         private void ChangeMovementRandomBee() {
             Transform[] limits = controlInfo.GetLimitsTransform();
             if (_beeInContainer)
@@ -152,7 +195,10 @@ namespace BeeHunter.Control
                 MovementRandomBeeXZInContainer(limits);
                 MovementRandomBeY();
             }
-            else { 
+            else {
+                MovementRandomBeeXZInContainer(_limitsBeeInNature);
+                MovementRandomBeY();
+                print("it isnt in container");
                 //move around the world
             }
         }
@@ -181,8 +227,11 @@ namespace BeeHunter.Control
 
             //change movement
             _lastMoveDirectionXZ = newDirection;
-            move.StartMoveAction(newDirection, _speedFractionXZ);
+            CallToStartMoveAction(newDirection);
         }
+
+        private void CallToStartMoveAction(Vector3 positionToMove)
+                                             => move.StartMoveAction(GetVectorConvertedWithZeroY(positionToMove), _speedFractionXZ);
 
         private void MovementRandomBeY()
         {

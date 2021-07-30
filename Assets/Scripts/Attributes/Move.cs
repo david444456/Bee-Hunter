@@ -24,7 +24,9 @@ namespace BeeHunter.Attributes {
 
         public void StartMoveAction(Vector3 destination, float speedFraction)
         {
-            if (!CanMoveTo(destination)) return;
+            if (!CanMoveTo(destination)) {
+                Debug.LogError("Destination wrong!");
+                return; }
             MoveTo(destination, maxSpeed, speedFraction);
         }
 

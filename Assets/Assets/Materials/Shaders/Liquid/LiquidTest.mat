@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiquidTest
+  m_Shader: {fileID: -6465566751694194690, guid: 20d62db0737e95c43ae7bb515c338cbc, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_09e904bea3e347d3865e49428640583b: 0
+    - Vector1_47a2decd0f774e22b6474e2b3fe382a5: 0.12
+    - Vector1_69f3966bde464d149869b835a682d87d: 0.183
+    - Vector1_dcb3c2bb111148c684e2462884c6c9e8: 0.86
+    - _WobbleX: 0.078
+    - _WobbleZ: 0.04
+    m_Colors:
+    - Color_1ca320136707407ea94c00641da2cc52: {r: 1, g: 0.49820757, b: 0, a: 1}
+    - Color_1d8a8dd6bf7742108329d44f1729d33c: {r: 1, g: 0.80700535, b: 0.0141509175, a: 1}
+    - Color_fe19242b86d040e1aa2f079cd0f3a969: {r: 1, g: 0.7603797, b: 0.48584908, a: 0}
+  m_BuildTextureStacks: []

@@ -14,7 +14,6 @@ namespace BeeHunter.Player
         int[] _actualCountItemsByType;
 
         int _actualSelectItem = 0;
-        int _maxCountItemByType = 0;
 
         PlayerBeeInput _playerInput;
         PlayerUI _playerUI;
@@ -73,8 +72,7 @@ namespace BeeHunter.Player
             for (int i = 0; i < _actualItems.Length; i++) {
                 Item it = _actualItems[i];
                 if (item.GetActualIndexItem() == it.GetActualIndexItem()) {
-                    AddItemInExistingIndex(i);
-                    return true;
+                    return AddItemInExistingIndex(i);
                 }
             }
             return false;
@@ -91,13 +89,19 @@ namespace BeeHunter.Player
             return false;
         }
 
-        private void AddItemInExistingIndex(int index)
+        private bool AddItemInExistingIndex(int index)
         {
-            if(_maxCountItemByType > _actualCountItemsByType[index])
-                _actualCountItemsByType[index]++;
+            bool AddItem = false;
 
+            if (maxItemsInventory > _actualCountItemsByType[index])
+            {
+                _actualCountItemsByType[index]++;
+                AddItem = true;
+            }
             //ui
             UpdateTextInventory(index);
+
+            return AddItem;
         }
 
         private void AddItemInEmptySlot(Item item) {

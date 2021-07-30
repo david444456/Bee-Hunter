@@ -7,9 +7,12 @@ namespace BeeHunter.Core
 {
     public class ControlFlower : MonoBehaviour, IDesactiveItemObject
     {
+        [SerializeField] int _maxUsesFlower = 3;
 
         private Container _mainContainer;
         private ControlItemObject controlItem;
+
+        private int _countUses = 0;
 
         void Start()
         {
@@ -23,6 +26,18 @@ namespace BeeHunter.Core
 
             if (_mainContainer != null)
                 _mainContainer.RemoveFlowerObjectFromList(this.gameObject);
+        }
+
+        public bool NewJobFinishedWithThisFlower_ReturnIfFlowerDie() {
+            _countUses++;
+            if (_countUses >= _maxUsesFlower) {
+
+                print("Destroy");
+                return true;
+            }
+
+            print(_countUses);
+            return false;
         }
     }
 }

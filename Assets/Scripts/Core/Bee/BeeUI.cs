@@ -7,6 +7,8 @@ namespace BeeHunter.Core {
     public class BeeUI : MonoBehaviour
     {
         [SerializeField] string _nameAnimationRecolectingPollen = "Recolect";
+        [SerializeField] string _nameAnimationWorkWithDiaper = "WorkDiaper";
+
         Animator animator;
 
         void Start()
@@ -16,6 +18,10 @@ namespace BeeHunter.Core {
 
         public void ChangeAnimationToRecolectingFood() {
             ChangeAnimationByString(_nameAnimationRecolectingPollen);
+        }
+
+        public void ChangeAnimationToWorkWithDiaper() {
+            ChangeAnimationByString(_nameAnimationWorkWithDiaper);
         }
 
         private void ChangeAnimationByString(string nameNewAnimation) {
