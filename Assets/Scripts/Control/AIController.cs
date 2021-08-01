@@ -102,7 +102,6 @@ namespace BeeHunter.Control
 
             }
             else if (_actualStateBee == StateBee.Pollen) {
-                print("I am polling");
                 if (_GOLastDiaper == null) _GOLastDiaper = container.GetActualDiaper();
 
                 //distance
@@ -111,7 +110,6 @@ namespace BeeHunter.Control
                 //ai
                 if (GetIsDistanceLessThanStop(_GOLastDiaper))
                 {
-                    print("Bring a food!");
                     ChangeStateBee(StateBee.Waiting);
                     beeUI.ChangeAnimationToWorkWithDiaper();
                 }
@@ -119,7 +117,6 @@ namespace BeeHunter.Control
                 //ai
                 AIMovementBee(_GOLastDiaper, _GOLastDiaper.transform.position);
                 StartMoveUpDirection();
-                print("I am polling 2");
             }
 
             //time values
