@@ -161,15 +161,31 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4163796869353038842, guid: e2497d59132a06246b1448b461133543, type: 3}
+      propertyPath: m_Height
+      value: 2.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163796869353038842, guid: e2497d59132a06246b1448b461133543, type: 3}
+      propertyPath: m_Radius
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163796869353038842, guid: e2497d59132a06246b1448b461133543, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4163796869353038842, guid: e2497d59132a06246b1448b461133543, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: d1e8c38454944b94e9e77267ea4278dc, type: 2}
+    - target: {fileID: 4163796869353038842, guid: e2497d59132a06246b1448b461133543, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4163796869353038843, guid: e2497d59132a06246b1448b461133543, type: 3}
       propertyPath: m_Name
+      value: Honey
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163796869353038843, guid: e2497d59132a06246b1448b461133543, type: 3}
+      propertyPath: m_TagString
       value: Honey
       objectReference: {fileID: 0}
     - target: {fileID: 4163796870899406340, guid: e2497d59132a06246b1448b461133543, type: 3}

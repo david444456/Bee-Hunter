@@ -54,9 +54,19 @@ namespace BeeHunter.Player {
         {
             if (other.gameObject.tag == "Item")
             {
-                _newItemTouch = null;
-                _playerUI.ChangeStateTouchNewItemUI(false);
+                ExitToZoneInteractObject();
             }
+        }
+
+        public void DestroyObjectItem(GameObject other) {
+            StartCoroutine(AfterDestroyObjectWhenTouch());
+        }
+
+        private void ExitToZoneInteractObject()
+        {
+            print("Null");
+            _newItemTouch = null;
+            _playerUI.ChangeStateTouchNewItemUI(false);
         }
 
         private void PushItemInventoryToOutside() {
@@ -94,6 +104,11 @@ namespace BeeHunter.Player {
             //desactive and active the collider
             GetComponent<CharacterController>().enabled = false;
             GetComponent<CharacterController>().enabled = true;
+        }
+
+        IEnumerator AfterDestroyObjectWhenTouch() {
+            yield return new WaitForEndOfFrame();
+            ExitToZoneInteractObject();
         }
     }
 }

@@ -16,10 +16,10 @@ namespace BeeHunter.Player
         [Header("Interact")]
         [SerializeField] GameObject GOInteractWithObjectUI;
 
-        void Start()
-        {
+        [Header("Coin")]
+        [SerializeField] Text textCoinPlayer;
 
-        }
+        public void ChangeTextCoin(int newCoin) => textCoinPlayer.text = newCoin.ToString();
 
         public void ChangeSelectionUIInventory(int index) {
             transformImageActualSelectInventory.anchoredPosition = imagesByItemsInInventory[index].rectTransform.anchoredPosition;

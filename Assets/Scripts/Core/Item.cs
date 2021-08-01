@@ -17,5 +17,7 @@ namespace BeeHunter.Core
         public int GetActualIndexItem() => _actualIndex;
 
         public GameObject GetActualGOPrefab() => _ActualPrefabPickItem;
+
+        public virtual int GetCurrentPrice() => 0;
     }
 }

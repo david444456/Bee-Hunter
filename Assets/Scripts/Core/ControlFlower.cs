@@ -29,6 +29,10 @@ namespace BeeHunter.Core
         }
 
         public bool NewJobFinishedWithThisFlower_ReturnIfFlowerDie() {
+            //desactive can player touch this object
+            if (_countUses <= 0) GetComponent<Collider>().enabled = false;
+
+            //working with uses
             _countUses++;
             if (_countUses >= _maxUsesFlower) {
 
@@ -36,7 +40,6 @@ namespace BeeHunter.Core
                 return true;
             }
 
-            print(_countUses);
             return false;
         }
     }

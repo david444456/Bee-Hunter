@@ -10,7 +10,7 @@ namespace BeeHunter.Core
         [Header("Honey")]
         [SerializeField] int _costThisHoney = 5;
 
-        public int GetCostHoney() => _costThisHoney;
+        public override int GetCurrentPrice() => _costThisHoney;
 
         public override string GetNameItem() => this.name;
     }

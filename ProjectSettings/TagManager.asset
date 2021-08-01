@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Bee
   - Flower
+  - Honey
   layers:
   - Default
   - TransparentFX
