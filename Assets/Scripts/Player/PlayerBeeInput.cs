@@ -12,6 +12,7 @@ namespace BeeHunter.Player
         public Action<int> alphaNumbersButtonEvent = delegate { };
         public Action rightClickMouseEvent = delegate { };
         public Action leftClickMouseEvent = delegate { };
+        public Action<int> UpDownButtonKey = delegate { };
 
         private PlayerActionControls playerActionControls;
 
@@ -31,6 +32,7 @@ namespace BeeHunter.Player
         {
             CheckTouchButtonsInventory();
             CheckTouchClickMouse();
+            CheckTouchUpDownButtons();
 
             _timeLastLeftClick += Time.deltaTime;
         }
@@ -41,6 +43,8 @@ namespace BeeHunter.Player
         private bool ThreeAlphaInput() => playerActionControls.Player.Alpha3.ReadValue<float>() != 0.0f;
         private bool RightClickMouseInput() => playerActionControls.Player.RightButton.ReadValue<float>() != 0.0f;
         private bool LeftClickMouseInput() => playerActionControls.Player.LeftButton.ReadValue<float>() != 0.0f;
+        private bool UpButtonKeyInput() => playerActionControls.Player.UpButton.ReadValue<float>() != 0.0f;
+        private bool DownButtonKeyInput() => playerActionControls.Player.DownButton.ReadValue<float>() != 0.0f;
 
         //checks
         private void CheckTouchButtonsInventory() {
@@ -56,6 +60,13 @@ namespace BeeHunter.Player
                 _timeLastLeftClick = 0;
                 leftClickMouseEvent.Invoke();
             }
+        }
+
+        private void CheckTouchUpDownButtons()
+        {
+            if (UpButtonKeyInput()) UpDownButtonKey.Invoke(1);
+            else if (DownButtonKeyInput()) UpDownButtonKey.Invoke(-1);
+        
         }
     }
 }

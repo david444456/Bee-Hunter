@@ -35,8 +35,8 @@ namespace BeeHunter.Core
             //working with uses
             _countUses++;
             if (_countUses >= _maxUsesFlower) {
-
-                print("Destroy");
+                Destroy(gameObject, 0.1f);
+                print("Active animation, and with animation destroy this object");
                 return true;
             }
 

@@ -46,7 +46,7 @@ namespace BeeHunter.Player {
 
                 _newItemTouch = _actualControlItemTouch.GetActualItem();
 
-                _playerUI.ChangeStateTouchNewItemUI(true);
+                _playerUI.ChangeStateTouchSomethingUI(true);
             }
         }
 
@@ -66,7 +66,7 @@ namespace BeeHunter.Player {
         {
             print("Null");
             _newItemTouch = null;
-            _playerUI.ChangeStateTouchNewItemUI(false);
+            _playerUI.ChangeStateTouchSomethingUI(false);
         }
 
         private void PushItemInventoryToOutside() {
@@ -94,7 +94,7 @@ namespace BeeHunter.Player {
 
             if (_playerInventory.PickUpNewItem(_newItemTouch)) {
                 _actualControlItemTouch.DesactiveObject();
-                _playerUI.ChangeStateTouchNewItemUI(false);
+                _playerUI.ChangeStateTouchSomethingUI(false);
                 _newItemTouch = null;
             }
 

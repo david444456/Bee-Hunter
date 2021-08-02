@@ -75,6 +75,22 @@ namespace BeeHunter
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UpButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""5284dc91-0cb7-4970-9127-f074a698b73d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""DownButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""28f246af-d343-4f44-ace9-082a5ff825da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -112,31 +128,9 @@ namespace BeeHunter
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""74cef79c-67fe-4562-bd9e-46ad6f438b5e"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""down"",
                     ""id"": ""cc8d8a5d-e66e-4032-925c-85dc57012c1b"",
                     ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""92679914-a595-43be-96c1-35326ecdbab6"",
-                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -156,31 +150,9 @@ namespace BeeHunter
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""1d0569ec-6b1e-4227-a623-1c55469c84fa"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""right"",
                     ""id"": ""003530ea-8004-47a6-9ad8-ccb82dfb1d5b"",
                     ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""4f40451d-6307-4763-8174-4801dab4ad9a"",
-                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -383,6 +355,28 @@ namespace BeeHunter
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""RightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""059b0b78-d913-4168-9dc6-810b5223ce73"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e94c4ea-42d6-4a47-a093-df9e27f767e3"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -906,6 +900,8 @@ namespace BeeHunter
             m_Player_Alpha1 = m_Player.FindAction("Alpha1", throwIfNotFound: true);
             m_Player_Alpha2 = m_Player.FindAction("Alpha2", throwIfNotFound: true);
             m_Player_Alpha3 = m_Player.FindAction("Alpha3", throwIfNotFound: true);
+            m_Player_UpButton = m_Player.FindAction("UpButton", throwIfNotFound: true);
+            m_Player_DownButton = m_Player.FindAction("DownButton", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -974,6 +970,8 @@ namespace BeeHunter
         private readonly InputAction m_Player_Alpha1;
         private readonly InputAction m_Player_Alpha2;
         private readonly InputAction m_Player_Alpha3;
+        private readonly InputAction m_Player_UpButton;
+        private readonly InputAction m_Player_DownButton;
         public struct PlayerActions
         {
             private @PlayerActionControls m_Wrapper;
@@ -985,6 +983,8 @@ namespace BeeHunter
             public InputAction @Alpha1 => m_Wrapper.m_Player_Alpha1;
             public InputAction @Alpha2 => m_Wrapper.m_Player_Alpha2;
             public InputAction @Alpha3 => m_Wrapper.m_Player_Alpha3;
+            public InputAction @UpButton => m_Wrapper.m_Player_UpButton;
+            public InputAction @DownButton => m_Wrapper.m_Player_DownButton;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1015,6 +1015,12 @@ namespace BeeHunter
                     @Alpha3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlpha3;
                     @Alpha3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlpha3;
                     @Alpha3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlpha3;
+                    @UpButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpButton;
+                    @UpButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpButton;
+                    @UpButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpButton;
+                    @DownButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownButton;
+                    @DownButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownButton;
+                    @DownButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownButton;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1040,6 +1046,12 @@ namespace BeeHunter
                     @Alpha3.started += instance.OnAlpha3;
                     @Alpha3.performed += instance.OnAlpha3;
                     @Alpha3.canceled += instance.OnAlpha3;
+                    @UpButton.started += instance.OnUpButton;
+                    @UpButton.performed += instance.OnUpButton;
+                    @UpButton.canceled += instance.OnUpButton;
+                    @DownButton.started += instance.OnDownButton;
+                    @DownButton.performed += instance.OnDownButton;
+                    @DownButton.canceled += instance.OnDownButton;
                 }
             }
         }
@@ -1158,6 +1170,8 @@ namespace BeeHunter
             void OnAlpha1(InputAction.CallbackContext context);
             void OnAlpha2(InputAction.CallbackContext context);
             void OnAlpha3(InputAction.CallbackContext context);
+            void OnUpButton(InputAction.CallbackContext context);
+            void OnDownButton(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

@@ -33,6 +33,6 @@ namespace BeeHunter.Player
             textCountItemsInInventory[index].text = newTextValue;
         }
 
-        public void ChangeStateTouchNewItemUI(bool newValue) => GOInteractWithObjectUI.SetActive(newValue);
+        public void ChangeStateTouchSomethingUI(bool newValue) => GOInteractWithObjectUI.SetActive(newValue);
     }
 }
