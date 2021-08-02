@@ -91,6 +91,14 @@ namespace BeeHunter
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""InteractHouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a16396e-1e15-4210-820f-3ca973be95fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -377,6 +385,17 @@ namespace BeeHunter
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DownButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b4555f6-8dc9-4ba1-90d1-9259ec1885d4"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractHouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -902,6 +921,7 @@ namespace BeeHunter
             m_Player_Alpha3 = m_Player.FindAction("Alpha3", throwIfNotFound: true);
             m_Player_UpButton = m_Player.FindAction("UpButton", throwIfNotFound: true);
             m_Player_DownButton = m_Player.FindAction("DownButton", throwIfNotFound: true);
+            m_Player_InteractHouse = m_Player.FindAction("InteractHouse", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -972,6 +992,7 @@ namespace BeeHunter
         private readonly InputAction m_Player_Alpha3;
         private readonly InputAction m_Player_UpButton;
         private readonly InputAction m_Player_DownButton;
+        private readonly InputAction m_Player_InteractHouse;
         public struct PlayerActions
         {
             private @PlayerActionControls m_Wrapper;
@@ -985,6 +1006,7 @@ namespace BeeHunter
             public InputAction @Alpha3 => m_Wrapper.m_Player_Alpha3;
             public InputAction @UpButton => m_Wrapper.m_Player_UpButton;
             public InputAction @DownButton => m_Wrapper.m_Player_DownButton;
+            public InputAction @InteractHouse => m_Wrapper.m_Player_InteractHouse;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1021,6 +1043,9 @@ namespace BeeHunter
                     @DownButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownButton;
                     @DownButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownButton;
                     @DownButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownButton;
+                    @InteractHouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractHouse;
+                    @InteractHouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractHouse;
+                    @InteractHouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractHouse;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1052,6 +1077,9 @@ namespace BeeHunter
                     @DownButton.started += instance.OnDownButton;
                     @DownButton.performed += instance.OnDownButton;
                     @DownButton.canceled += instance.OnDownButton;
+                    @InteractHouse.started += instance.OnInteractHouse;
+                    @InteractHouse.performed += instance.OnInteractHouse;
+                    @InteractHouse.canceled += instance.OnInteractHouse;
                 }
             }
         }
@@ -1172,6 +1200,7 @@ namespace BeeHunter
             void OnAlpha3(InputAction.CallbackContext context);
             void OnUpButton(InputAction.CallbackContext context);
             void OnDownButton(InputAction.CallbackContext context);
+            void OnInteractHouse(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

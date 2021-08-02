@@ -45,6 +45,7 @@ namespace BeeHunter.Player
         private bool LeftClickMouseInput() => playerActionControls.Player.LeftButton.ReadValue<float>() != 0.0f;
         private bool UpButtonKeyInput() => playerActionControls.Player.UpButton.ReadValue<float>() != 0.0f;
         private bool DownButtonKeyInput() => playerActionControls.Player.DownButton.ReadValue<float>() != 0.0f;
+        public bool FButtonKeyInput() => playerActionControls.Player.InteractHouse.ReadValue<float>() != 0.0f;
 
         //checks
         private void CheckTouchButtonsInventory() {

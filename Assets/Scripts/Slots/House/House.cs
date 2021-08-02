@@ -1,3 +1,4 @@
+using BeeHunter.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,14 @@ public class House : MonoBehaviour
     [SerializeField] private LayerMask doorLayer;
     [SerializeField] private GameObject pressF;
     [SerializeField] private GameObject uiHouse;
+
+    PlayerBeeInput beeInput;
+
+    private void Start()
+    {
+        beeInput = FindObjectOfType<PlayerBeeInput>();
+    }
+
     void Update()
     {
         RaycastHit rayHit;
@@ -19,7 +28,7 @@ public class House : MonoBehaviour
                 if (rayHit.collider.name == "Door")
                 {
                     pressF.SetActive(true);
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (beeInput.FButtonKeyInput())
                     {
                         uiHouse.SetActive(true);
                     }
