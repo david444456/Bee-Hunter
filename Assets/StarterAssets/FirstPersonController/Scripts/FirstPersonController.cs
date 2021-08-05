@@ -24,6 +24,8 @@ namespace StarterAssets
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
+		public float SubstractStamina = 0.02f;
+
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
 		public float JumpHeight = 1.2f;
@@ -73,6 +75,9 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		//edit for the bee hunter
+		BeeHunter.Player.PlayerStamina _playerStaminaBeeHunter;
+
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -86,6 +91,7 @@ namespace StarterAssets
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+			_playerStaminaBeeHunter = GetComponent<BeeHunter.Player.PlayerStamina>();
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -132,8 +138,16 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			float targetSpeed = 0;
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			if (_input.sprint && _playerStaminaBeeHunter.CanRun())
+			{
+				 targetSpeed = SprintSpeed;
+				_playerStaminaBeeHunter.SubstractStamina(SubstractStamina);
+			} else {
+				 targetSpeed = MoveSpeed;
+			}
+
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

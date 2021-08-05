@@ -19,6 +19,20 @@ namespace BeeHunter.Player
         [Header("Coin")]
         [SerializeField] Text textCoinPlayer;
 
+        [Header("Movement")]
+        [SerializeField] Slider sliderMoveStamina;
+
+        [Header("Health")]
+        [SerializeField] Slider sliderHealth;
+
+        public void ChangeHealthSlider(float newValue) => sliderHealth.value = newValue;
+
+        public void ChangeMaxHealthSlider(int maxValue) => sliderHealth.maxValue = maxValue;
+
+        public void ChangeMaxMoveStaminaSlider(int maxValue) => sliderMoveStamina.maxValue = maxValue;
+
+        public void ChangeValueStaminaSlider(float newValue) => sliderMoveStamina.value = newValue;
+
         public void ChangeTextCoin(int newCoin) => textCoinPlayer.text = newCoin.ToString();
 
         public void ChangeSelectionUIInventory(int index) {
