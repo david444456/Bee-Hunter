@@ -9,19 +9,23 @@ namespace BeeHunter.Player
 
         PlayerUI playerUI;
 
-        private int _actualPremiumCoin = 0;
+        private int _actualCoin = 0;
 
         private void Start()
         {
             playerUI = GetComponent<PlayerUI>();
         }
 
-        public int GetActualCoin { get => _actualPremiumCoin; }
+        public int GetActualCoin { get => _actualCoin; }
 
         public void SetAugmentCoin(int augmentValue)
         {
-            _actualPremiumCoin += augmentValue;
-            playerUI.ChangeTextCoin(_actualPremiumCoin);
+            _actualCoin += augmentValue;
+            playerUI.ChangeTextCoin(_actualCoin);
+        }
+
+        public bool GetCanBuyItemWithPrice(int newPrice) {
+            return newPrice <= _actualCoin;
         }
     }
 }

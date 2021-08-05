@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Enter",
+                    "type": "Button",
+                    "id": "ef5c0196-08ae-4f63-b909-4751fb3bb039",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -381,6 +389,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "InteractHouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ae65066-acec-46ef-abc7-e3c8f32dc04c",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
