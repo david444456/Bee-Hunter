@@ -17,6 +17,7 @@ namespace BeeHunter.Player {
         PlayerInventory _playerInventory;
         PlayerUI _playerUI;
         PlayerBeeInput _playerInput;
+        Interact interactPlayer;
 
         ControlItemObject _actualControlItemTouch;
 
@@ -27,17 +28,22 @@ namespace BeeHunter.Player {
             _playerInventory = GetComponent<PlayerInventory>();
             _playerUI = GetComponent<PlayerUI>();
             _playerInput = GetComponent<PlayerBeeInput>();
+            interactPlayer = GetComponent<Interact>();
 
             //input
             _playerInput.rightClickMouseEvent += InteractWithItemTouch;
             _playerInput.leftClickMouseEvent += PushItemInventoryToOutside;
+
+            //event interact
+            interactPlayer.SelectedEvent += StartInteractWithObject;
+            interactPlayer.DeselectedEvent += FinishInteractWithObject;
         }
 
         private void Update()
         {
             _timeLastPickItem += Time.deltaTime;
         }
-
+        /*
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Item")
@@ -56,10 +62,30 @@ namespace BeeHunter.Player {
             {
                 ExitToZoneInteractObject();
             }
-        }
+        }*/
 
         public void DestroyObjectItem(GameObject other) {
             StartCoroutine(AfterDestroyObjectWhenTouch());
+        }
+
+        private void StartInteractWithObject(GameObject GOCollider)
+        {
+            if (GOCollider.tag == "Item")
+            {
+                _actualControlItemTouch = GOCollider.gameObject.GetComponent<ControlItemObject>();
+
+                _newItemTouch = _actualControlItemTouch.GetActualItem();
+
+                _playerUI.ChangeStateTouchSomethingUI(true);
+            }
+        }
+
+        private void FinishInteractWithObject(GameObject GOCollider)
+        {
+            if (GOCollider.gameObject.tag == "Item")
+            {
+                ExitToZoneInteractObject();
+            }
         }
 
         private void ExitToZoneInteractObject()

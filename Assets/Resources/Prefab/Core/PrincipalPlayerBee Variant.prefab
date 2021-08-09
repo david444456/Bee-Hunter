@@ -63,6 +63,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e0c2dd99ee52844bd36a66c2ef73e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6087718820828165551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689286099044555236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1921a03bd2f71624096ca033f630de57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
+  damageToReceiveHit: 20
+  _initialHealthPoints: 100
+  _isPlayer: 0
 --- !u!114 &6742308970012821186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cda255e567e84e43b6b03949b767251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6087718820828165551
+--- !u!114 &8636684089552880473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,15 +132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1689286099044555236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1921a03bd2f71624096ca033f630de57, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bfbd98034173d848823c901125ea4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDie:
-    m_PersistentCalls:
-      m_Calls: []
-  damageToReceiveHit: 20
-  _initialHealthPoints: 100
-  _isPlayer: 0
+  maxDistance: 10
 --- !u!1 &2964900848464200322
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,8 +178,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 6b911390c5825014e8377183a7837d3f, type: 2}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: MoveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: SprintSpeed
-      value: 20
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: SubstractStamina
