@@ -7,7 +7,8 @@ namespace BeeHunter.Core
 {
     public class ControlFlower : MonoBehaviour, IDesactiveItemObject
     {
-        [SerializeField] int _maxUsesFlower = 3;
+        [SerializeField] FlowerItem _itemFlower;
+        int _maxUsesFlower = 0;
 
         private Container _mainContainer;
         private ControlItemObject controlItem;
@@ -18,8 +19,12 @@ namespace BeeHunter.Core
         {
             controlItem = GetComponent<ControlItemObject>();
 
+            _maxUsesFlower = _itemFlower.GetMaxUsesFlower();
+
             controlItem.DesactiveObjectEvent += DesactiveObjectInformToMainContainer;
         }
+
+        public FlowerItem GetActualFlowerItem() => _itemFlower;
 
         public void DesactiveObjectInformToMainContainer()
         {
