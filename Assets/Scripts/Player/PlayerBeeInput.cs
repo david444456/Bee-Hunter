@@ -22,6 +22,7 @@ namespace BeeHunter.Player
         private float _timeLastLeftClick = 0;
         private float _timeLastRightClick = 0;
         private float _timeLastEnterClick = 0;
+        private float _timeLastUpDownClick = 0;
 
         private void Awake()
         {
@@ -43,6 +44,7 @@ namespace BeeHunter.Player
             _timeLastLeftClick += Time.deltaTime;
             _timeLastEnterClick += Time.deltaTime;
             _timeLastRightClick += Time.deltaTime;
+            _timeLastUpDownClick += Time.deltaTime;
         }
 
         //inputs
@@ -77,8 +79,15 @@ namespace BeeHunter.Player
 
         private void CheckTouchUpDownButtons()
         {
-            if (UpButtonKeyInput()) UpDownButtonKey.Invoke(1);
-            else if (DownButtonKeyInput()) UpDownButtonKey.Invoke(-1);
+            if (UpButtonKeyInput() && _timeLastUpDownClick > _limitBetweenTouchButton)
+            {
+                _timeLastUpDownClick = 0;
+                UpDownButtonKey.Invoke(1);
+            }
+            else if (DownButtonKeyInput() && _timeLastUpDownClick > _limitBetweenTouchButton) {
+                _timeLastUpDownClick = 0;
+                UpDownButtonKey.Invoke(-1); 
+            }
         
         }
 

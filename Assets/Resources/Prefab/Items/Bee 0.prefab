@@ -7,18 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2610760291278088763, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 54818dcf25b829a48b128aa832055ecc, type: 2}
     - target: {fileID: 2610760291278088764, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2610760291762516752, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
-      propertyPath: _actualItem
-      value: 
-      objectReference: {fileID: 11400000, guid: 6b331b5a83bd16a4883bbef457f953e5, type: 2}
     - target: {fileID: 2610760291762516755, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,11 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2610760291762516757, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
       propertyPath: m_Name
-      value: Bee 1
+      value: Bee 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880399020755243839, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
-      propertyPath: _actualBeeItem
-      value: 
-      objectReference: {fileID: 11400000, guid: 6b331b5a83bd16a4883bbef457f953e5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}

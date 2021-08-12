@@ -6,7 +6,7 @@ namespace BeeHunter.Player
 {
     public class PlayerCoin : MonoBehaviour
     {
-
+        [SerializeField] int _initialCoins = 0;
         PlayerUI playerUI;
 
         private int _actualCoin = 0;
@@ -14,6 +14,8 @@ namespace BeeHunter.Player
         private void Start()
         {
             playerUI = GetComponent<PlayerUI>();
+
+            SetAugmentCoin(_initialCoins);
         }
 
         public int GetActualCoin { get => _actualCoin; }

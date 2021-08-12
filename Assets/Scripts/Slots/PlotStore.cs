@@ -41,11 +41,12 @@ namespace BeeHunter.Slots
             //ui desactive
             ChangeStateActiveStore(false);
 
-
-
+            //if there are other object prefab
+            if (_lastGOSpawn != null) return;
 
             //destroy button
-            if (index == _PrefabsBuy.Length) {
+            if (index == _PrefabsBuy.Length)
+            {
                 if (_lastGOSpawn != null) Destroy(_lastGOSpawn);
                 return;
             }

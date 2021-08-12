@@ -13,12 +13,14 @@ namespace BeeHunter.Control
         [SerializeField] Transform[] _limitsBeeInNature;
         [SerializeField] float _speedFractionXZ = 0.2f;
         [SerializeField] float _speedFractionY = 0.05f;
+        [SerializeField] float _maxSpeedVelocityMoveY = 0.3f;
 
         [Header("AI")]
         [SerializeField] float _heightToUp = 5;
         [SerializeField] float _maxTimeBetweenGetFood = 5;
         [SerializeField] float _maxTimeToChangeMoveNormal = 4;
         [SerializeField] float _distanceStop = 3;
+
 
         ControlInfoBee controlInfo;
         BeeMove move;
@@ -245,7 +247,9 @@ namespace BeeHunter.Control
 
         private void StartMoveUpDirection()
         {
-            float timeInSeconds = GetTimeInSecondsMovementHorizontal();
+            float timeMoveUP = GetTimeInSecondsMovementHorizontal();
+            float timeInSeconds = Mathf.Max(timeMoveUP, _maxSpeedVelocityMoveY);
+            print(timeInSeconds + " " + timeMoveUP);
             move.StartMoveActionUpDirection(_lastMoveDirectionY, timeInSeconds);
         }
 

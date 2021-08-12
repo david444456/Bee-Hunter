@@ -17,6 +17,7 @@ namespace BeeHunter.Core
 
     public enum TypeBee { 
         Normal,
+        Ghost,
         Aggressive
     }
 }
