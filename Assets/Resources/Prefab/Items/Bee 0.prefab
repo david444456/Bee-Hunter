@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bee 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3909107784874813640, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
+      propertyPath: _maxSpeedVelocityMoveY
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}

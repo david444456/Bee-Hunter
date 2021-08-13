@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d71bead52f85cf44ca8b99eef1e5ed81, type: 3}
-  m_Name: Bee 1
+  m_Name: Bee 0
   m_EditorClassIdentifier: 
   _actualIndex: 1
   _spriteItem: {fileID: 21300000, guid: 751aa1b6637101946b2fdbb7aa27d6ad, type: 3}
-  _ActualPrefabPickItem: {fileID: 2610760291762516757, guid: 75ffff16e0eaeba48805450738aa58c0, type: 3}
+  _ActualPrefabPickItem: {fileID: 1163990531325221486, guid: 9821d4ba0824ab243abd71f35046797b, type: 3}
+  _typeBee: 0
+  _prefabHoney: {fileID: 539570823289517093, guid: 95b685148db276f44a953724ceb1b8cf, type: 3}

@@ -154,6 +154,20 @@ Transform:
   m_Father: {fileID: 2610760291762516755}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3271900484583897947
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610760291762516757}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.65
+  m_Height: 3.59
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.33, z: 0}
 --- !u!95 &4499799845632663594
 Animator:
   serializedVersion: 3
@@ -232,7 +246,7 @@ MonoBehaviour:
   - {fileID: 776952957}
   _speedFractionXZ: 0.2
   _speedFractionY: 0.005
-  _maxSpeedVelocityMoveY: 0.6
+  _mixSpeedVelocityMoveY: 0.3
   _heightToUp: 4
   _maxTimeBetweenGetFood: 5
   _maxTimeToChangeMoveNormal: 4
@@ -433,6 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9043806784773900880, guid: 51488f57de008d740a60837e25f0045f, type: 3}
+    - {fileID: 9043806785262523256, guid: 51488f57de008d740a60837e25f0045f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51488f57de008d740a60837e25f0045f, type: 3}
 --- !u!1 &2610760291762516757 stripped
 GameObject:

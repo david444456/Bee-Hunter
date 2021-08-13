@@ -25,18 +25,21 @@ namespace BeeHunter.Slots
                 ControlInfoBee newInfoBee = other.GetComponentInParent<ControlInfoBee>();
                 BeeItem newBee = newInfoBee.GetActualBeeItem();
 
-                print("New detecting");
                 //add bee
                 if (_actualTotalBee.Count <= 0)
+                {
                     CreateNewTypeOfBee(newBee, newInfoBee);
+                }
                 else
                 {
-                    AddBeeToActualBees(newBee, newInfoBee);
+                    if (!AddBeeToActualBees(newBee, newInfoBee)) return; //for no the same types of bee
                 }
 
-                newInfoBee.ReceiveInformationFromContainer(this, _limitsToContainer, _diaperGO);
                 //communicate with bee to informate that she is in a container, the dimension
                 //comunnicate info about diaper
+                newInfoBee.ReceiveInformationFromContainer(this, _limitsToContainer, _diaperGO);
+                _honeyGO = newBee.GetGOHoney();
+
             }
             else if (other.tag == "Flower") {
                 _actualTotalFlowers.Add(other.gameObject);
@@ -106,16 +109,18 @@ namespace BeeHunter.Slots
 
         public int GetTotalFlowers() => _actualTotalFlowers.Count;
 
-        private void AddBeeToActualBees(BeeItem newBee, ControlInfoBee controlInfoBee)
+        private bool AddBeeToActualBees(BeeItem newBee, ControlInfoBee controlInfoBee)
         {
             if (newBee.GetTypeBee() == _typeBeeActualContainter)
             {
                 _actualTotalBee.Add(controlInfoBee);
+                return true;
             }
             else
             {
                 print("Different types!");
             }
+            return false;
         }
 
         private void CreateNewTypeOfBee(BeeItem newBee, ControlInfoBee controlInfoBee)
