@@ -86,9 +86,25 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "1d515e52-1bdc-42a1-b1f3-ae754a5a24e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
                     "name": "Enter",
                     "type": "Button",
                     "id": "ef5c0196-08ae-4f63-b909-4751fb3bb039",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "E",
+                    "type": "Button",
+                    "id": "259e6597-cee7-4850-8746-e6a678945bf8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
@@ -400,6 +416,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "868d5319-0841-4f9d-ba41-9e748dce50ab",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "E",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5222503a-514f-4f5a-ac60-cf1141d69f27",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

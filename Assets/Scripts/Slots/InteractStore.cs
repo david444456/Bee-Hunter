@@ -17,7 +17,8 @@ namespace BeeHunter.Slots
         {
             playerUI = GetComponent<PlayerUI>();
 
-            GetComponent<PlayerBeeInput>().rightClickMouseEvent += InteractWithStore;
+            GetComponent<PlayerBeeInput>().EButtonKey += ActiveInteractWithStore;
+            GetComponent<PlayerBeeInput>().EscapeButtonKey += DesactiveInteractWithStore;
 
         }
 
@@ -44,12 +45,17 @@ namespace BeeHunter.Slots
             else _lastPlotStore = null;
 
 
-            playerUI.ChangeStateTouchSomethingUI(newState);
+            playerUI.ChangeStateTouchStoreUI(newState);
             _isActiveUIInteract = newState;
         }
 
-        private void InteractWithStore() {
+        private void ActiveInteractWithStore() {
             if(_lastPlotStore != null) _lastPlotStore.ChangeStateActiveStore(true);
+        }
+
+        private void DesactiveInteractWithStore()
+        {
+            if (_lastPlotStore != null) _lastPlotStore.ChangeStateActiveStore(false);
         }
 
     }

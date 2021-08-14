@@ -43,6 +43,7 @@ namespace BeeHunter.Player {
         {
             _timeLastPickItem += Time.deltaTime;
         }
+
         /*
         private void OnTriggerEnter(Collider other)
         {
@@ -82,7 +83,10 @@ namespace BeeHunter.Player {
 
         private void FinishInteractWithObject(GameObject GOCollider)
         {
-            if (GOCollider.gameObject.tag == "Item")
+            if (GOCollider.gameObject == null) {
+                ExitToZoneInteractObject();
+            }
+            else if (GOCollider.gameObject.tag == "Item")
             {
                 ExitToZoneInteractObject();
             }

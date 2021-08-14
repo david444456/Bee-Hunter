@@ -15,6 +15,7 @@ namespace BeeHunter.Player
 
         [Header("Interact")]
         [SerializeField] GameObject GOInteractWithObjectUI;
+        [SerializeField] GameObject GOInteractWithStoreUI;
 
         [Header("Coin")]
         [SerializeField] Text textCoinPlayer;
@@ -48,5 +49,7 @@ namespace BeeHunter.Player
         }
 
         public void ChangeStateTouchSomethingUI(bool newValue) => GOInteractWithObjectUI.SetActive(newValue);
+
+        public void ChangeStateTouchStoreUI(bool newValue) => GOInteractWithStoreUI.SetActive(newValue);
     }
 }

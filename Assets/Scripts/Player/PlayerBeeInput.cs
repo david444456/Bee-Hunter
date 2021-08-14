@@ -14,6 +14,8 @@ namespace BeeHunter.Player
         public Action leftClickMouseEvent = delegate { };
         public Action<int> UpDownButtonKey = delegate { };
         public Action EnterButtonKey = delegate { };
+        public Action EButtonKey = delegate { };
+        public Action EscapeButtonKey = delegate { };
 
         private PlayerActionControls playerActionControls;
 
@@ -40,6 +42,8 @@ namespace BeeHunter.Player
             CheckTouchClickMouse();
             CheckTouchUpDownButtons();
             CheckTouchEnterButton();
+            CheckTouchEButton();
+            CheckTouchEscapeButton();
 
             _timeLastLeftClick += Time.deltaTime;
             _timeLastEnterClick += Time.deltaTime;
@@ -56,6 +60,8 @@ namespace BeeHunter.Player
         private bool UpButtonKeyInput() => playerActionControls.Player.UpButton.ReadValue<float>() != 0.0f;
         private bool DownButtonKeyInput() => playerActionControls.Player.DownButton.ReadValue<float>() != 0.0f;
         private bool EnterButtonKeyInput() => playerActionControls.Player.Enter.ReadValue<float>() != 0.0f;
+        private bool EscapeButtonKeyInput() => playerActionControls.Player.Escape.ReadValue<float>() != 0.0f;
+        private bool EButtonKeyInput() => playerActionControls.Player.E.ReadValue<float>() != 0.0f;
         public bool FButtonKeyInput() => playerActionControls.Player.InteractHouse.ReadValue<float>() != 0.0f;
 
         //checks
@@ -96,6 +102,22 @@ namespace BeeHunter.Player
                 _timeLastEnterClick = 0;
                 EnterButtonKey.Invoke();
 
+            }
+        }
+
+        private void CheckTouchEButton()
+        {
+            if (EButtonKeyInput())
+            {
+                EButtonKey.Invoke();
+            }
+        }
+
+        private void CheckTouchEscapeButton()
+        {
+            if (EscapeButtonKeyInput())
+            {
+                EscapeButtonKey.Invoke();
             }
         }
     }

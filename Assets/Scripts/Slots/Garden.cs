@@ -2,6 +2,7 @@ using BeeHunter.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BeeHunter.Slots
 {
@@ -16,6 +17,8 @@ namespace BeeHunter.Slots
         [SerializeField] Transform[] transformPositionByNewFlowers;
         [SerializeField] float _maxTimeBetweenProduceFlowers = 5f;
         [SerializeField] float _minTimeBetweenProduceFlowers = 3;
+        [Header("UI")]
+        [SerializeField] Image _imageShowInfoAboutItem;
 
         ControlFlower _lastControlFlower;
         FlowerItem _lastFlowerItem;
@@ -59,7 +62,10 @@ namespace BeeHunter.Slots
             ProduceNewSpawnFlower();
 
             //destroy first flower
-            Destroy(GOFlower);
+            _lastControlFlower.GetComponent<ControlItemObject>().DesactiveObject() ;
+
+            //ui
+            _imageShowInfoAboutItem.sprite = _lastFlowerItem.GetActualSpriteByItem();
         }
 
         private void StartSpawnFlower() {

@@ -101,9 +101,25 @@ namespace BeeHunter
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d515e52-1bdc-42a1-b1f3-ae754a5a24e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
                     ""name"": ""Enter"",
                     ""type"": ""Button"",
                     ""id"": ""ef5c0196-08ae-4f63-b909-4751fb3bb039"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""E"",
+                    ""type"": ""Button"",
+                    ""id"": ""259e6597-cee7-4850-8746-e6a678945bf8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
@@ -415,6 +431,28 @@ namespace BeeHunter
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""868d5319-0841-4f9d-ba41-9e748dce50ab"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""E"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5222503a-514f-4f5a-ac60-cf1141d69f27"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -941,7 +979,9 @@ namespace BeeHunter
             m_Player_UpButton = m_Player.FindAction("UpButton", throwIfNotFound: true);
             m_Player_DownButton = m_Player.FindAction("DownButton", throwIfNotFound: true);
             m_Player_InteractHouse = m_Player.FindAction("InteractHouse", throwIfNotFound: true);
+            m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
             m_Player_Enter = m_Player.FindAction("Enter", throwIfNotFound: true);
+            m_Player_E = m_Player.FindAction("E", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1013,7 +1053,9 @@ namespace BeeHunter
         private readonly InputAction m_Player_UpButton;
         private readonly InputAction m_Player_DownButton;
         private readonly InputAction m_Player_InteractHouse;
+        private readonly InputAction m_Player_Escape;
         private readonly InputAction m_Player_Enter;
+        private readonly InputAction m_Player_E;
         public struct PlayerActions
         {
             private @PlayerActionControls m_Wrapper;
@@ -1028,7 +1070,9 @@ namespace BeeHunter
             public InputAction @UpButton => m_Wrapper.m_Player_UpButton;
             public InputAction @DownButton => m_Wrapper.m_Player_DownButton;
             public InputAction @InteractHouse => m_Wrapper.m_Player_InteractHouse;
+            public InputAction @Escape => m_Wrapper.m_Player_Escape;
             public InputAction @Enter => m_Wrapper.m_Player_Enter;
+            public InputAction @E => m_Wrapper.m_Player_E;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1068,9 +1112,15 @@ namespace BeeHunter
                     @InteractHouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractHouse;
                     @InteractHouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractHouse;
                     @InteractHouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractHouse;
+                    @Escape.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                    @Escape.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                    @Escape.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
                     @Enter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnter;
                     @Enter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnter;
                     @Enter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnter;
+                    @E.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
+                    @E.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
+                    @E.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1105,9 +1155,15 @@ namespace BeeHunter
                     @InteractHouse.started += instance.OnInteractHouse;
                     @InteractHouse.performed += instance.OnInteractHouse;
                     @InteractHouse.canceled += instance.OnInteractHouse;
+                    @Escape.started += instance.OnEscape;
+                    @Escape.performed += instance.OnEscape;
+                    @Escape.canceled += instance.OnEscape;
                     @Enter.started += instance.OnEnter;
                     @Enter.performed += instance.OnEnter;
                     @Enter.canceled += instance.OnEnter;
+                    @E.started += instance.OnE;
+                    @E.performed += instance.OnE;
+                    @E.canceled += instance.OnE;
                 }
             }
         }
@@ -1229,7 +1285,9 @@ namespace BeeHunter
             void OnUpButton(InputAction.CallbackContext context);
             void OnDownButton(InputAction.CallbackContext context);
             void OnInteractHouse(InputAction.CallbackContext context);
+            void OnEscape(InputAction.CallbackContext context);
             void OnEnter(InputAction.CallbackContext context);
+            void OnE(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
