@@ -53,6 +53,7 @@ namespace BeeHunter.Slots
         }
 
         public void RemoveFlowerObjectFromList(GameObject flowerGO) {
+            if (!_actualTotalFlowers.Exists(element => flowerGO)) return ;
             int index = _actualTotalFlowers.IndexOf(flowerGO);
             _actualTotalFlowers.Remove(flowerGO);
             _actualRequestedFlowers.RemoveAt(index);
@@ -77,7 +78,6 @@ namespace BeeHunter.Slots
         }
 
         public void FinishJobWithFlower(GameObject GOflower) {
-            print(GOflower.name);
             bool res = GOflower.GetComponentInParent<ControlFlower>().NewJobFinishedWithThisFlower_ReturnIfFlowerDie();
             if (!res)
                 ReturnFlowerToUnrequested(GOflower);

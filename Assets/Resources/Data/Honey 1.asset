@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f89fbd421489c2459f95470ab8808ca, type: 3}
   m_Name: Honey 1
   m_EditorClassIdentifier: 
-  _actualIndex: 3
+  _actualIndex: 6
   _spriteItem: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   _ActualPrefabPickItem: {fileID: 539570823289517093, guid: ad698658e1b72df478677e9935f39dca, type: 3}
   _costThisHoney: 20

@@ -94,7 +94,6 @@ namespace BeeHunter.Player {
 
         private void ExitToZoneInteractObject()
         {
-            print("Null");
             _newItemTouch = null;
             _playerUI.ChangeStateTouchSomethingUI(false);
         }

@@ -39,7 +39,6 @@ namespace BeeHunter.Core
                     _lastSelectedGO = hit.collider.gameObject;
                     SelectedEvent.Invoke(_lastSelectedGO);
                     _selectOneObject = true;
-                    print("Selecteable");
                 }
 
             }

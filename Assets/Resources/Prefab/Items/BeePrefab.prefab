@@ -247,10 +247,12 @@ MonoBehaviour:
   _speedFractionXZ: 0.2
   _speedFractionY: 0.005
   _mixSpeedVelocityMoveY: 0.3
+  _colliderMesh: {fileID: 4292354}
   _heightToUp: 4
   _maxTimeBetweenGetFood: 5
   _maxTimeToChangeMoveNormal: 4
   _distanceStop: 1.32
+  _actualStateBee: 0
 --- !u!114 &4880399020755243839
 MonoBehaviour:
   m_ObjectHideFlags: 0

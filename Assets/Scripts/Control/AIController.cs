@@ -14,6 +14,7 @@ namespace BeeHunter.Control
         [SerializeField] float _speedFractionXZ = 0.2f;
         [SerializeField] float _speedFractionY = 0.05f;
         [SerializeField] float _mixSpeedVelocityMoveY = 0.3f;
+        [SerializeField] Collider _colliderMesh;
 
         [Header("AI")]
         [SerializeField] float _heightToUp = 5;
@@ -32,7 +33,7 @@ namespace BeeHunter.Control
         //private float timeSinceAggrevated = Mathf.Infinity;
         private bool _beeInContainer = false;
 
-        private StateBee _actualStateBee;
+        [SerializeField] private StateBee _actualStateBee;
         private Vector3 _lastMoveDirectionXZ = Vector3.zero;
         private Vector3 _lastMoveDirectionY = Vector3.zero;
         private GameObject _GOLastFlower = null;
@@ -77,17 +78,27 @@ namespace BeeHunter.Control
 
                 //get position of the food
                 if (_GOLastFlower == null) { 
+                    //get other flower
                     GameObject newFlower = container.GetFlowerGameObject();
                     _GOLastFlower = newFlower;
+
+                    //distance
+                    if (_GOLastFlower == null)
+                    {
+                        ChangeStateBee(StateBee.Normal);
+                    }
+                    else {
+                        print("Change ignore collision " + _colliderMesh.name);
+                        Physics.IgnoreCollision(_colliderMesh, _GOLastFlower.GetComponentInParent<CapsuleCollider>());
+                    }
                 }
 
                 //distance
-                if (_GOLastFlower == null) return;
+                if (_GOLastFlower == null) return ; 
 
                 //ai
                 if (GetIsDistanceLessThanStop(_GOLastFlower))
                 {
-                    print("Distance!");
                     //states
                     ChangeStateBee(StateBee.Waiting);
                     
