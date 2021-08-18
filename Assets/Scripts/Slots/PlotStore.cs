@@ -16,6 +16,7 @@ namespace BeeHunter.Slots
         [SerializeField] int[] _pricePrefabsBuy;
         [SerializeField] GameObject _lastGOSpawn;
         [SerializeField] Transform _TFPositionToSpawnNewObject;
+        [SerializeField] ParticleSystem _effectSpawn;
 
         UiControlMoveStore uiControlMove;
         PlayerCoin playerCoin;
@@ -57,6 +58,9 @@ namespace BeeHunter.Slots
             if (playerCoin.GetCanBuyItemWithPrice(_pricePrefabsBuy[index]))
             {
                 playerCoin.SetAugmentCoin(-_pricePrefabsBuy[index]);
+
+                //effect
+                _effectSpawn.Play();
 
                 //spawn
                 _lastGOSpawn = Instantiate(_PrefabsBuy[index],

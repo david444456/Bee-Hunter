@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bee 1
   m_EditorClassIdentifier: 
   _actualIndex: 5
-  _spriteItem: {fileID: 21300000, guid: 751aa1b6637101946b2fdbb7aa27d6ad, type: 3}
+  _spriteItem: {fileID: 21300000, guid: f0a6115edd52d2f41aba601efd313fe7, type: 3}
   _ActualPrefabPickItem: {fileID: 1163990531325221486, guid: a6582bac74facdd42903e727895724f7, type: 3}
   _typeBee: 1
   _prefabHoney: {fileID: 539570823289517093, guid: ad698658e1b72df478677e9935f39dca, type: 3}

@@ -7,6 +7,7 @@ namespace BeeHunter.Core
 {
     public class SellPoint : MonoBehaviour
     {
+        [SerializeField] ParticleSystem _PartycleNewSellItem;
 
         PlayerCoin coin;
         InteractInventory interactInventory;
@@ -27,8 +28,14 @@ namespace BeeHunter.Core
                 //coin
                 coin.SetAugmentCoin(price);
 
+
+                //effect
+                _PartycleNewSellItem.transform.position = other.transform.position;
+                _PartycleNewSellItem.Play();
+
                 //item
                 controlItemObject.DesactiveObject();
+
 
                 //inventory errors
                 interactInventory.DestroyObjectItem(controlItemObject.gameObject);

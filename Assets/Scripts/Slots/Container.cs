@@ -11,6 +11,7 @@ namespace BeeHunter.Slots
         [SerializeField] Transform[] _limitsToContainer;
         [SerializeField] GameObject _diaperGO;
         [SerializeField] GameObject _honeyGO;
+        [SerializeField] ParticleSystem _partycleNewSpawnHoney;
         [SerializeField] float _forceSpawn = 250f;
 
         List<ControlInfoBee> _actualTotalBee = new List<ControlInfoBee>();
@@ -74,6 +75,10 @@ namespace BeeHunter.Slots
             Vector3 newRandomVector = 
                 new Vector3(x, y, z);
 
+            //effect
+            _partycleNewSpawnHoney.Play();
+
+            //force
             honey.GetComponent<Rigidbody>().AddForce(newRandomVector * _forceSpawn, ForceMode.Impulse);
         }
 

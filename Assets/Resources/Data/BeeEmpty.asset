@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: BeeEmpty
   m_EditorClassIdentifier: 
   _actualIndex: 0
-  _spriteItem: {fileID: 21300000, guid: b74c31d447d2f5d41a61081bdf5e7126, type: 3}
+  _spriteItem: {fileID: 21300000, guid: 90ded0611e490aa4ba6961afbfc2280d, type: 3}
+  _ActualPrefabPickItem: {fileID: 0}
+  _typeBee: 0
+  _prefabHoney: {fileID: 0}
