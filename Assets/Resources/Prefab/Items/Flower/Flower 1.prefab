@@ -27,6 +27,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemFlower: {fileID: 11400000, guid: 61279b8fe2ac41a46b1a5ee2861542c1, type: 2}
+--- !u!65 &6846364068412298632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254485418572766564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8470157, y: 1.3488443, z: 0.66353315}
+  m_Center: {x: 0.0010161996, y: 0.67442214, z: -0.055569768}
 --- !u!1001 &3148308388474877577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flower-1-White
       objectReference: {fileID: 0}
+    - target: {fileID: 136212, guid: 513389a274e3abe4c8ea9b871f172306, type: 3}
+      propertyPath: m_TagString
+      value: Flower
+      objectReference: {fileID: 0}
     - target: {fileID: 461594, guid: 513389a274e3abe4c8ea9b871f172306, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -235,3 +252,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 513389a274e3abe4c8ea9b871f172306, type: 3}
+--- !u!1 &8254485418572766564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 136212, guid: 513389a274e3abe4c8ea9b871f172306, type: 3}
+  m_PrefabInstance: {fileID: 8254485418572630384}
+  m_PrefabAsset: {fileID: 0}

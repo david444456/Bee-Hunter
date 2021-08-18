@@ -70,6 +70,11 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
+		//this scripts is created for the bee hunter
+		public void StartGame() {
+			SetCursorState(cursorLocked);
+		}
+
 #if !UNITY_IOS || !UNITY_ANDROID
 
 		private void OnApplicationFocus(bool hasFocus)
