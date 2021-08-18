@@ -16,7 +16,7 @@ namespace BeeHunter.UI
 
         PlayerBeeInput beeInput;
 
-        private int _actualIndex;
+        [SerializeField] private int _actualIndex;
 
         void Start()
         {
@@ -44,7 +44,7 @@ namespace BeeHunter.UI
 
         private void MoveRectTransformSelect(int value) {
             value *= -1;
-
+            print(_actualIndex);
             if (InRange(value + _actualIndex)) {
                 _actualIndex += value;
                 _rectTransformSelectImage.anchoredPosition = _rectTransformButtons[_actualIndex].anchoredPosition;

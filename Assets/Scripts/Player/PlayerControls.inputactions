@@ -108,14 +108,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
-                },
-                {
-                    "name": "C",
-                    "type": "Button",
-                    "id": "007a174d-8735-4ee3-9057-7fbf7c206513",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -387,7 +379,7 @@
                     "name": "",
                     "id": "059b0b78-d913-4168-9dc6-810b5223ce73",
                     "path": "<Keyboard>/upArrow",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "UpButton",
@@ -448,39 +440,6 @@
                     "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "C",
-                    "id": "56752654-90cc-4d7a-bc24-a71225f3205c",
-                    "path": "ButtonWithOneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "C",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "df0e67de-ea01-4c60-bb37-e7216f4cee93",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "C",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "button",
-                    "id": "c1339f8a-8447-4355-b3c6-dc75703f6c6e",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "C",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         },

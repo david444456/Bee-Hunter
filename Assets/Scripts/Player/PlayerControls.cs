@@ -123,14 +123,6 @@ namespace BeeHunter
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""C"",
-                    ""type"": ""Button"",
-                    ""id"": ""007a174d-8735-4ee3-9057-7fbf7c206513"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -402,7 +394,7 @@ namespace BeeHunter
                     ""name"": """",
                     ""id"": ""059b0b78-d913-4168-9dc6-810b5223ce73"",
                     ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UpButton"",
@@ -463,39 +455,6 @@ namespace BeeHunter
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""C"",
-                    ""id"": ""56752654-90cc-4d7a-bc24-a71225f3205c"",
-                    ""path"": ""ButtonWithOneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""C"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""df0e67de-ea01-4c60-bb37-e7216f4cee93"",
-                    ""path"": ""<Keyboard>/c"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""C"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""button"",
-                    ""id"": ""c1339f8a-8447-4355-b3c6-dc75703f6c6e"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""C"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1023,7 +982,6 @@ namespace BeeHunter
             m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
             m_Player_Enter = m_Player.FindAction("Enter", throwIfNotFound: true);
             m_Player_E = m_Player.FindAction("E", throwIfNotFound: true);
-            m_Player_C = m_Player.FindAction("C", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1098,7 +1056,6 @@ namespace BeeHunter
         private readonly InputAction m_Player_Escape;
         private readonly InputAction m_Player_Enter;
         private readonly InputAction m_Player_E;
-        private readonly InputAction m_Player_C;
         public struct PlayerActions
         {
             private @PlayerActionControls m_Wrapper;
@@ -1116,7 +1073,6 @@ namespace BeeHunter
             public InputAction @Escape => m_Wrapper.m_Player_Escape;
             public InputAction @Enter => m_Wrapper.m_Player_Enter;
             public InputAction @E => m_Wrapper.m_Player_E;
-            public InputAction @C => m_Wrapper.m_Player_C;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1165,9 +1121,6 @@ namespace BeeHunter
                     @E.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
                     @E.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
                     @E.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
-                    @C.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnC;
-                    @C.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnC;
-                    @C.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnC;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1211,9 +1164,6 @@ namespace BeeHunter
                     @E.started += instance.OnE;
                     @E.performed += instance.OnE;
                     @E.canceled += instance.OnE;
-                    @C.started += instance.OnC;
-                    @C.performed += instance.OnC;
-                    @C.canceled += instance.OnC;
                 }
             }
         }
@@ -1338,7 +1288,6 @@ namespace BeeHunter
             void OnEscape(InputAction.CallbackContext context);
             void OnEnter(InputAction.CallbackContext context);
             void OnE(InputAction.CallbackContext context);
-            void OnC(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

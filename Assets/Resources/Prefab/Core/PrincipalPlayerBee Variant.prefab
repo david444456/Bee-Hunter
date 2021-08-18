@@ -22,6 +22,7 @@ MonoBehaviour:
   - {fileID: 0}
   transformImageActualSelectInventory: {fileID: 0}
   GOInteractWithObjectUI: {fileID: 0}
+  GOInteractWithStoreUI: {fileID: 0}
   textCoinPlayer: {fileID: 0}
   sliderMoveStamina: {fileID: 0}
   sliderHealth: {fileID: 0}
@@ -51,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxTimeBetweenLeftClick: 0.3
+  _limitBetweenTouchUpDownButton: 0.1
 --- !u!114 &5237003133167376268
 MonoBehaviour:
   m_ObjectHideFlags: 0

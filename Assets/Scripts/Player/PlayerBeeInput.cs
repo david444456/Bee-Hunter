@@ -8,6 +8,7 @@ namespace BeeHunter.Player
     public class PlayerBeeInput : MonoBehaviour
     {
         [SerializeField] float _maxTimeBetweenLeftClick = 1;
+        [SerializeField] float _limitBetweenTouchUpDownButton = 0.7f;
 
         public Action<int> alphaNumbersButtonEvent = delegate { };
         public Action rightClickMouseEvent = delegate { };
@@ -25,6 +26,7 @@ namespace BeeHunter.Player
         private float _timeLastRightClick = 0;
         private float _timeLastEnterClick = 0;
         private float _timeLastUpDownClick = 0;
+        private float _timeLastEClick = 0;
 
         private void Awake()
         {
@@ -49,6 +51,7 @@ namespace BeeHunter.Player
             _timeLastEnterClick += Time.deltaTime;
             _timeLastRightClick += Time.deltaTime;
             _timeLastUpDownClick += Time.deltaTime;
+            _timeLastEClick += Time.deltaTime;
         }
 
         //inputs
@@ -72,11 +75,12 @@ namespace BeeHunter.Player
         }
 
         private void CheckTouchClickMouse() {
-            if (RightClickMouseInput() && _timeLastRightClick > _limitBetweenTouchButton) { 
-                rightClickMouseEvent.Invoke();
+            if (RightClickMouseInput() && _timeLastRightClick > _limitBetweenTouchButton) {
                 _timeLastRightClick = 0;
+                rightClickMouseEvent.Invoke();
+
             }
-            else if (LeftClickMouseInput() && _timeLastLeftClick > _maxTimeBetweenLeftClick)
+            else if (LeftClickMouseInput() && _timeLastLeftClick > _limitBetweenTouchButton)
             {
                 _timeLastLeftClick = 0;
                 leftClickMouseEvent.Invoke();
@@ -85,14 +89,14 @@ namespace BeeHunter.Player
 
         private void CheckTouchUpDownButtons()
         {
-            if (UpButtonKeyInput() && _timeLastUpDownClick > _limitBetweenTouchButton)
+            if (UpButtonKeyInput() && _timeLastUpDownClick > _limitBetweenTouchUpDownButton)
             {
                 _timeLastUpDownClick = 0;
                 UpDownButtonKey.Invoke(1);
             }
-            else if (DownButtonKeyInput() && _timeLastUpDownClick > _limitBetweenTouchButton) {
+            else if (DownButtonKeyInput() && _timeLastUpDownClick > _limitBetweenTouchUpDownButton) {
                 _timeLastUpDownClick = 0;
-                UpDownButtonKey.Invoke(-1); 
+                UpDownButtonKey.Invoke(-1);
             }
         
         }
@@ -107,8 +111,9 @@ namespace BeeHunter.Player
 
         private void CheckTouchEButton()
         {
-            if (EButtonKeyInput())
+            if (EButtonKeyInput() && _timeLastEClick > _maxTimeBetweenLeftClick)
             {
+                _timeLastEClick = 0;
                 EButtonKey.Invoke();
             }
         }

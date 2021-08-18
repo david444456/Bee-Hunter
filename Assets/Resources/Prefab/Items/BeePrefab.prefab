@@ -154,6 +154,20 @@ Transform:
   m_Father: {fileID: 2610760291762516755}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4292354
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610760291278088764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.79
+  m_Height: 1.3960613
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.0010042491, z: 0.0024042134}
 --- !u!136 &3271900484583897947
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -165,9 +179,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.65
-  m_Height: 3.59
+  m_Height: 5.5
   m_Direction: 1
-  m_Center: {x: 0, y: 1.33, z: 0}
+  m_Center: {x: 0, y: 0.99, z: 0}
 --- !u!95 &4499799845632663594
 Animator:
   serializedVersion: 3
@@ -298,20 +312,6 @@ MonoBehaviour:
   maxAceleration: 50
   maxNavPathLenght: 40
   _transformBeeMesh: {fileID: 2610760291278088765}
---- !u!136 &4292354
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2610760291278088764}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.79
-  m_Height: 1.3960613
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.0010042491, z: 0.0024042134}
 --- !u!1001 &6465276795945230442
 PrefabInstance:
   m_ObjectHideFlags: 0
