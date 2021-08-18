@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flower 1
   m_EditorClassIdentifier: 
   _actualIndex: 2
-  _spriteItem: {fileID: 21300000, guid: 7acdfb0a02e37974d8a0f757425becee, type: 3}
+  _spriteItem: {fileID: 21300000, guid: 052038a58ddc7934b870a09cabc1a383, type: 3}
   _ActualPrefabPickItem: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
   _prefabSeedFlower: {fileID: 7912475174297866838, guid: fbafe9c4848fc3644a70386d55822fa6, type: 3}
   _maxUseFlower: 3
