@@ -7,22 +7,18 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonShading
-  m_Shader: {fileID: -6465566751694194690, guid: 362b1c22aaaa4f8459da6c77cb5ce5fc, type: 3}
+  m_Name: ToonMat
+  m_Shader: {fileID: -6465566751694194690, guid: f5df4373846297140a57165fff78d985, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_E0E90B4F:
-        m_Texture: {fileID: 2800000, guid: 9a6500d133f42472fb42a0263bdcfd51, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -35,12 +31,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - Vector1_533C9C05: 0
-    - Vector1_911421B8: 1
-    - Vector1_9c835b560daf4e19beff460606f82c5a: 0.713
-    - Vector1_A7207CA3: 2
-    - _CellShading: 255
+    m_Floats: []
     m_Colors:
-    - Color_5DF75355: {r: 1, g: 1, b: 1, a: 1}
+    - Color_35b57846189b4f629fafe19b2e994c95: {r: 1, g: 1, b: 1, a: 0}
+    - Color_77db02d5924a42aea84ee13088c62b31: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

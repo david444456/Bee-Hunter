@@ -7,14 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rock1
-  m_Shader: {fileID: -6465566751694194690, guid: 362b1c22aaaa4f8459da6c77cb5ce5fc, type: 3}
+  m_Name: Rock1 1
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: _SPECULAR_SETUP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -124,14 +125,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_533C9C05: 0.305
-    - Vector1_911421B8: 1
-    - Vector1_9c835b560daf4e19beff460606f82c5a: 1
+    - Vector1_533C9C05: 0.4
+    - Vector1_911421B8: 0.1
     - Vector1_A7207CA3: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _CellShading: 255
+    - _CellShading: 251
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
