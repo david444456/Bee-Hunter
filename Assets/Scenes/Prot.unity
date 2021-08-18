@@ -1125,28 +1125,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401447344}
   m_CullTransparentMesh: 1
---- !u!1 &416610546 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-  m_PrefabInstance: {fileID: 6522089545687278297}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &416610551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416610546}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395342860074b9347b9029c2a7fff055, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  pressF: {fileID: 657561367}
-  uiHouse: {fileID: 1623622548}
 --- !u!1001 &419670678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9054,6 +9032,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4297099663408874324}
     m_Modifications:
+    - target: {fileID: 416610551, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: pressF
+      value: 
+      objectReference: {fileID: 657561367}
+    - target: {fileID: 416610551, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: uiHouse
+      value: 
+      objectReference: {fileID: 1623622548}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9097,10 +9083,6 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: far clip plane
-      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_Name
