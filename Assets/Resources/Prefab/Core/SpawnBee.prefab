@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actualTypeSpawn: 0
-  _prefabToSpawn: {fileID: 0}
+  _prefabToSpawn: {fileID: 1163990531325221486, guid: 9821d4ba0824ab243abd71f35046797b, type: 3}
   _limitsToSpawnObject:
   - {fileID: 6362248998129072203}
   - {fileID: 6362248998589955579}
