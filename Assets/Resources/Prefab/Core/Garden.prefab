@@ -581,6 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7059037505098012627}
   - component: {fileID: 9041792907274384530}
+  - component: {fileID: 496606649165954777}
   m_Layer: 0
   m_Name: Garden
   m_TagString: Untagged
@@ -626,6 +627,29 @@ MonoBehaviour:
   _maxTimeBetweenProduceFlowers: 5
   _minTimeBetweenProduceFlowers: 3
   _imageShowInfoAboutItem: {fileID: 2797763502205961484}
+--- !u!114 &496606649165954777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059037505098012632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION MADERA/CONTRUCCION MADERA
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8561361186446072288
 GameObject:
   m_ObjectHideFlags: 0

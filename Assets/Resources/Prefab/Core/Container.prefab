@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 7059037505098012627}
   - component: {fileID: 7059037505098012638}
   - component: {fileID: 7059037505098012639}
+  - component: {fileID: 2000507375407887969}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -351,6 +352,29 @@ MonoBehaviour:
   _honeyGO: {fileID: 8809447470332784927, guid: cd6bd87d4fc539641b913c5a91ba6045, type: 3}
   _partycleNewSpawnHoney: {fileID: 865827011181291269}
   _forceSpawn: 5
+--- !u!114 &2000507375407887969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059037505098012632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION METAL/CONTRUCCION METAL
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &2115996003
 PrefabInstance:
   m_ObjectHideFlags: 0
