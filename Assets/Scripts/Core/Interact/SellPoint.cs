@@ -12,6 +12,8 @@ namespace BeeHunter.Core
         PlayerCoin coin;
         InteractInventory interactInventory;
 
+       
+
         void Start()
         {
             coin = FindObjectOfType<PlayerCoin>();
@@ -39,6 +41,9 @@ namespace BeeHunter.Core
 
                 //inventory errors
                 interactInventory.DestroyObjectItem(controlItemObject.gameObject);
+
+              
+
             }
         }
 

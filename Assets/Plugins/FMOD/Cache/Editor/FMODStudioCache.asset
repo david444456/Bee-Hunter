@@ -1,5 +1,94 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8431328552306242563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/MIEL/VENDER MIEL
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/MIEL/VENDER MIEL
+  guid: cd34a1d53aa9b744945a92b8fa32d194
+  Banks:
+  - {fileID: -3533901545996397254}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
+--- !u!114 &-8062215744024292660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/FLOR.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/bee hunter/Build/Desktop/FLOR.bank
+  Name: FLOR
+  StudioPath: bank:/FLOR
+  lastModified: 637667813001623335
+  FileSizes:
+  - Name: Desktop
+    Value: 29440
+  Exists: 1
+--- !u!114 &-7058489319718093630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/AMBIENT/NORMAL AMBIENT/NORMAL AMBIENT
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/AMBIENT/NORMAL AMBIENT/NORMAL AMBIENT
+  guid: 41195ccf98fb5f40aa1293a9d3d21649
+  Banks:
+  - {fileID: -4358408229779475322}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 62000
+--- !u!114 &-6712957948044514527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/MIEL/AGARRAR MIEL
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/MIEL/AGARRAR MIEL
+  guid: f25d08e1623a694da92d051670198013
+  Banks:
+  - {fileID: -3533901545996397254}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &-5156329969642407667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,8 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION METAL/CONTRUCCION METAL
   guid: a041d7dbda1e044f97d1da9fa2daa5dd
-  Banks:
-  - {fileID: 3316936831734546493}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -23,6 +111,92 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
+--- !u!114 &-4358408229779475322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/AMBIENT.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/bee hunter/Build/Desktop/AMBIENT.bank
+  Name: AMBIENT
+  StudioPath: bank:/AMBIENT
+  lastModified: 637667807711297492
+  FileSizes:
+  - Name: Desktop
+    Value: 814688
+  Exists: 1
+--- !u!114 &-3533901545996397254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MIEL.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/bee hunter/Build/Desktop/MIEL.bank
+  Name: MIEL
+  StudioPath: bank:/MIEL
+  lastModified: 637667813001993662
+  FileSizes:
+  - Name: Desktop
+    Value: 22624
+  Exists: 1
+--- !u!114 &-3137269840655971326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/MIEL/SOLTAR MIEL
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/MIEL/SOLTAR MIEL
+  guid: ed710fd90fefb14891995c59dfee4433
+  Banks:
+  - {fileID: -3533901545996397254}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-2743210585379883593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/ABEJAS/SOLTAR ABEJA/SOLTAR ABEJA
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/ABEJAS/SOLTAR ABEJA/SOLTAR ABEJA
+  guid: 857b1296d70f654aa9cc6ed9140261c2
+  Banks:
+  - {fileID: 5163350600229418536}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-1988395751197385440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,8 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION MADERA/CONTRUCCION MADERA
   guid: e6eaeb5c027caa4d82fe6b53ade91424
-  Banks:
-  - {fileID: 3316936831734546493}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -81,10 +254,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/bee hunter/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637655123153776956
+  lastModified: 637667813001703405
   FileSizes:
   - Name: Desktop
-    Value: 920
+    Value: 1694
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -102,16 +275,99 @@ MonoBehaviour:
   - {fileID: -154535483718990762}
   - {fileID: 7740023774676788770}
   - {fileID: 3316936831734546493}
+  - {fileID: -4358408229779475322}
+  - {fileID: 5163350600229418536}
+  - {fileID: -8062215744024292660}
+  - {fileID: -3533901545996397254}
   EditorEvents:
-  - {fileID: -5156329969642407667}
-  - {fileID: -935399218780941510}
+  - {fileID: -7058489319718093630}
+  - {fileID: 2706634285424984479}
+  - {fileID: 3074577836378978547}
+  - {fileID: 7916527383159012632}
+  - {fileID: 7831767490163561251}
+  - {fileID: -2743210585379883593}
+  - {fileID: 9105838123082953013}
+  - {fileID: 4175404346329387419}
+  - {fileID: -8431328552306242563}
+  - {fileID: -3137269840655971326}
+  - {fileID: -6712957948044514527}
+  - {fileID: 720045325712909235}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7740023774676788770}
   StringsBanks:
   - {fileID: -154535483718990762}
-  stringsBankWriteTime: 637655123153776956
+  stringsBankWriteTime: 637667813001703405
   cacheVersion: 8
+--- !u!114 &720045325712909235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/FLOR/CHUPAR FLOR/CHUPAR FLOR
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/FLOR/CHUPAR FLOR/CHUPAR FLOR
+  guid: 4b47c4f096a7aa4da618e181ba4010cb
+  Banks:
+  - {fileID: -8062215744024292660}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
+--- !u!114 &2706634285424984479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/ABEJAS/RUIDO ABEJA/RUIDO ABEJA
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/ABEJAS/RUIDO ABEJA/RUIDO ABEJA
+  guid: c8d9c344e123e94d8ebc7c5785a38296
+  Banks:
+  - {fileID: 5163350600229418536}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 10
+  Length: 8500
+--- !u!114 &3074577836378978547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/ABEJAS/AGARRAR ABEJAS/AGARRAR ABEJAS
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/ABEJAS/AGARRAR ABEJAS/AGARRAR ABEJAS
+  guid: f54e8e4c1f199843b21e18ffe7b271e0
+  Banks:
+  - {fileID: 5163350600229418536}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
 --- !u!114 &3316936831734546493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,10 +383,53 @@ MonoBehaviour:
   Path: ../../FMOD Studio/bee hunter/Build/Desktop/CONSTRUCCION.bank
   Name: CONSTRUCCION
   StudioPath: bank:/CONSTRUCCION
-  lastModified: 637655123154737818
+  lastModified: 637667813001323062
   FileSizes:
   - Name: Desktop
-    Value: 144992
+    Value: 144064
+  Exists: 1
+--- !u!114 &4175404346329387419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/FLOR/AGARRAR FLOR/AGARRAR FLOR
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/FLOR/AGARRAR FLOR/AGARRAR FLOR
+  guid: 92a8337198796c4398aadf5d6ddd1f14
+  Banks:
+  - {fileID: -8062215744024292660}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &5163350600229418536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/ABEJAS.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/bee hunter/Build/Desktop/ABEJAS.bank
+  Name: ABEJAS
+  StudioPath: bank:/ABEJAS
+  lastModified: 637667812724682630
+  FileSizes:
+  - Name: Desktop
+    Value: 157664
   Exists: 1
 --- !u!114 &7740023774676788770
 MonoBehaviour:
@@ -147,8 +446,77 @@ MonoBehaviour:
   Path: ../../FMOD Studio/bee hunter/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637655123153756941
+  lastModified: 637667813001673365
   FileSizes:
   - Name: Desktop
     Value: 1012
   Exists: 1
+--- !u!114 &7831767490163561251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION METAL/CONSTRUCCION METAL
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION METAL/CONSTRUCCION METAL
+  guid: c98ddcd379c4664e802c4d3d1fff7684
+  Banks:
+  - {fileID: 3316936831734546493}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
+--- !u!114 &7916527383159012632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION MADERA/CONSTRUCCION MADERA
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION MADERA/CONSTRUCCION MADERA
+  guid: 038db2c2327ff14fb78ae0d287daa75e
+  Banks:
+  - {fileID: 3316936831734546493}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &9105838123082953013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/prueba/SFX/FLOR/SOLTAR FLOR/SOLTAR FLOR
+  m_EditorClassIdentifier: 
+  Path: event:/prueba/SFX/FLOR/SOLTAR FLOR/SOLTAR FLOR
+  guid: 765f441c1546994ba7e29b13624adee2
+  Banks:
+  - {fileID: -8062215744024292660}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500

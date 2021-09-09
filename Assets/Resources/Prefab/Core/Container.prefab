@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION METAL/CONTRUCCION METAL
+  Event: event:/prueba/SFX/CONSTRUCCION/CONSTRUCCION METAL/CONSTRUCCION METAL
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1

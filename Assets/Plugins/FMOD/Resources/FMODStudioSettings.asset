@@ -433,7 +433,11 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - ABEJAS
+  - AMBIENT
   - CONSTRUCCION
+  - FLOR
+  - MIEL
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
