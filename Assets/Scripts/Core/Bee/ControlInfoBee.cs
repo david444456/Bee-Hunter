@@ -13,7 +13,6 @@ namespace BeeHunter.Core
         
         private ControlItemObject controlItem;
 
-        private bool _beeInContainer = false;
         private Container _mainContainer;
         private Transform[] _dimentionsContainer;
         private GameObject _diaperGO;
@@ -27,7 +26,6 @@ namespace BeeHunter.Core
         }
 
         public void ReceiveInformationFromContainer(Container newCont, Transform[] dimentions, GameObject GOdiaper) {
-            _beeInContainer = true;
             ChangeStateBeeInContainerEvent.Invoke(true);
             _mainContainer = newCont;
             _dimentionsContainer = dimentions;

@@ -28,7 +28,7 @@ namespace BeeHunter.Core
             }
         }
 
-        public bool CanSpawnNewObjectByType(TypeSpawnObject typeSpawnObject) {
+        public bool CanSpawnNewObjectByTypeAndAugmentCount(TypeSpawnObject typeSpawnObject) {
             if (_countSpawnObjects[typeSpawnObject] < _maxCountSpawnObjects)
             {
                 _countSpawnObjects[typeSpawnObject]++;

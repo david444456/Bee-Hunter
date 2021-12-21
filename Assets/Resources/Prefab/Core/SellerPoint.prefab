@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e062e127181bb4fbc4fe88451dc051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PartycleNewSellItem: {fileID: 2925592819882165033}
+  _particleNewItemSell: {fileID: 2925592819882165033}
 --- !u!65 &2220504029426424813
 BoxCollider:
   m_ObjectHideFlags: 0

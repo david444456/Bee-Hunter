@@ -7,20 +7,21 @@ namespace BeeHunter.Core
     public class SpawnObjectArea : MonoBehaviour
     {
         [SerializeField] TypeSpawnObject _actualTypeSpawn;
-        [SerializeField] GameObject _prefabToSpawn;
+        [SerializeField] int _indexItemToSpawn;
         [SerializeField] Transform[] _limitsToSpawnObject;
 
         [Header("Values")]
         [SerializeField] int _maxCountSpawnObjects = 3;
         [SerializeField] float _maxTimeBetweenGenerateNewObject = 0.2f;
 
-        ControlSpawnObject controlSpawnObject;
+        ControlSpawnObject _controlSpawnObject;
+        IObjectFactory _objectFactory;
         int _actualCountObjectThisSpawn = 0; 
 
         void Start()
         {
-            controlSpawnObject = FindObjectOfType<ControlSpawnObject>();
-
+            _controlSpawnObject = FindObjectOfType<ControlSpawnObject>();
+            _objectFactory = FindObjectOfType<ObjectItemFactory>();
         }
 
         /// <summary>
@@ -31,16 +32,26 @@ namespace BeeHunter.Core
             StartCoroutine(SpawnObject());
         }
 
-        private IEnumerator SpawnObject() {
-            yield return new WaitForSeconds(Random.Range(0, _maxTimeBetweenGenerateNewObject));
+        private IEnumerator SpawnObject()
+        {
+            yield return new WaitForSeconds(RandomTimeToSpawn());
 
-            if (controlSpawnObject.CanSpawnNewObjectByType(_actualTypeSpawn) && _actualCountObjectThisSpawn < _maxCountSpawnObjects) {
-                Instantiate(_prefabToSpawn, GetPositionToSpawnRandom(), Quaternion.identity, this.transform );
+            if (CheckCanSpawnWithLimitItems())
+            {
+                InstantiateNewObject();
                 _actualCountObjectThisSpawn++;
                 StartCoroutine(SpawnObject());
             }
+        }
 
-            //
+        private float RandomTimeToSpawn() => Random.Range(0, _maxTimeBetweenGenerateNewObject);
+
+        private bool CheckCanSpawnWithLimitItems() => _controlSpawnObject.CanSpawnNewObjectByTypeAndAugmentCount(_actualTypeSpawn) && _actualCountObjectThisSpawn < _maxCountSpawnObjects;
+
+        private void InstantiateNewObject()
+        {
+            GameObject prefabForSpawn = _objectFactory.GetObjectToSpawnById(_indexItemToSpawn);
+            Instantiate(prefabForSpawn, GetPositionToSpawnRandom(), Quaternion.identity, this.transform);
         }
 
         private Vector3 GetPositionToSpawnRandom() {
