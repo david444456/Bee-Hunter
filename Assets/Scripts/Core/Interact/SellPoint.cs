@@ -7,45 +7,56 @@ namespace BeeHunter.Core
 {
     public class SellPoint : MonoBehaviour
     {
-        [SerializeField] ParticleSystem _PartycleNewSellItem;
+        [SerializeField] ParticleSystem _particleNewItemSell;
 
-        PlayerCoin coin;
-        InteractInventory interactInventory;
-
-       
+        PlayerCoin _controlMainCoin;
+        InteractInventory _interactInventory;
 
         void Start()
         {
-            coin = FindObjectOfType<PlayerCoin>();
-            interactInventory = coin.GetComponent<InteractInventory>();
+            _controlMainCoin = FindObjectOfType<PlayerCoin>();
+            _interactInventory = _controlMainCoin.GetComponent<InteractInventory>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Honey")
+            if (other.CompareTag("Honey"))
             {
-                ControlItemObject controlItemObject = other.GetComponentInParent<ControlItemObject>();
-                int price = controlItemObject.GetActualItem().GetCurrentPrice();
+                //var
+                ControlItemObject controlItemObject = GetControlItemObjectFromCollider(other);
+                int actualItemCost = GetActualItemCost(controlItemObject);
 
-                //coin
-                coin.SetAugmentCoin(price);
-
-
-                //effect
-                _PartycleNewSellItem.transform.position = other.transform.position;
-                _PartycleNewSellItem.Play();
-
-                //item
-                controlItemObject.DesactiveObject();
-
-
-                //inventory errors
-                interactInventory.DestroyObjectItem(controlItemObject.gameObject);
-
-              
-
+                SetInformationAndActiveEffect(controlItemObject.transform.position, actualItemCost);
+                DesactiveItemFromObjectsAndData(controlItemObject);
             }
         }
 
+        private void DesactiveItemFromObjectsAndData(ControlItemObject controlItemObject)
+        {
+            //item
+            controlItemObject.DesactiveObject();
+
+            //update the player inventory
+            _interactInventory.DestroyObjectItem(controlItemObject.gameObject);
+        }
+
+        private void SetInformationAndActiveEffect(Vector3 PositionToSpawnEffect, int priceActualItem)
+        {
+            //coin
+            _controlMainCoin.SetAugmentCoin(priceActualItem);
+
+            //effect
+            ActiveEffectInPosition(PositionToSpawnEffect);
+        }
+
+        private void ActiveEffectInPosition(Vector3 PositionToSpawnEffect)
+        {
+            _particleNewItemSell.transform.position = PositionToSpawnEffect;
+            _particleNewItemSell.Play();
+        }
+
+        private ControlItemObject GetControlItemObjectFromCollider(Collider other) => other.GetComponentInParent<ControlItemObject>();
+
+        private int GetActualItemCost(ControlItemObject controlItemObject) => controlItemObject.GetActualItem().GetCurrentPrice();
     }
 }

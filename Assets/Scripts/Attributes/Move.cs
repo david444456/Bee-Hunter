@@ -19,13 +19,15 @@ namespace BeeHunter.Attributes {
 
         #endregion
 
+        private const short _maxCornersInThePath = 2;
+
         #region functions
         protected NavMeshAgent navMeshAgent;
 
         public void StartMoveAction(Vector3 destination, float speedFraction)
         {
             if (!CanMoveTo(destination)) {
-                Debug.LogError("Destination wrong!");
+               // Debug.LogError("Destination wrong!");
                 return; }
             MoveTo(destination, maxSpeed, speedFraction);
         }
@@ -89,10 +91,10 @@ namespace BeeHunter.Attributes {
 
         #region private function
 
-        float GetPathLength(NavMeshPath path)
+        private float GetPathLength(NavMeshPath path)
         {
             float total = 0;
-            if (path.corners.Length < 2) return total;
+            if (path.corners.Length < _maxCornersInThePath) return total;
             for (int i = 0; i < path.corners.Length - 1; i++)
             {
                 total += Vector3.Distance(path.corners[i], path.corners[i + 1]);

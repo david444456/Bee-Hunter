@@ -13,7 +13,7 @@ namespace BeeHunter.Player
         {
             playerUI = GetComponent<PlayerUI>();
 
-            playerUI.ChangeMaxHealthSlider(_initialHealthPoints);
+            playerUI.ChangeMaxHealthSlider(initialHealthPoints);
             playerUI.ChangeHealthSlider(GetHealthPoints());
         }
 

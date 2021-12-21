@@ -10,18 +10,17 @@ namespace BeeHunter.Attributes
 
         [SerializeField] public UnityEvent OnDie;
         [SerializeField] protected int damageToReceiveHit = 20;
-        [SerializeField] protected int _initialHealthPoints = 100;
-        [SerializeField] protected bool _isPlayer = false;
+        [SerializeField] protected int initialHealthPoints = 100;
+        [SerializeField] protected bool isPlayer = false;
 
         [HideInInspector] protected Animator animator;
-        [HideInInspector] protected bool _isDead = false;
-
+        [HideInInspector] protected bool isDead = false;
 
         private int _healthPoints;
 
         protected virtual void Awake()
         {
-            _healthPoints = _initialHealthPoints;
+            _healthPoints = initialHealthPoints;
         }
 
         /// <summary>
@@ -31,8 +30,8 @@ namespace BeeHunter.Attributes
         /// <param name="damage">damage value (float) </param>
         public virtual void TakeDamage(GameObject instigator, float damage)
         {
-            //if dead return
-            if (_isDead) return;
+            //dont continue when the player dies
+            if (isDead) return;
 
             //take damage
             _healthPoints = (int)Mathf.Max(_healthPoints - damage, 0);
@@ -46,28 +45,24 @@ namespace BeeHunter.Attributes
         /// Augment the health with heal parameter
         /// </summary>
         /// <param name="heal"></param>
-        public void AugmentHealth(float heal)
-        {
-            _healthPoints = (int)Mathf.Min(_healthPoints + heal, GetMaxHealthPoints());
-            print(_healthPoints);
-        }
+        public void AugmentHealth(float heal) => _healthPoints = (int)Mathf.Min(_healthPoints + heal, GetMaxHealthPoints());
 
-        public float GetInitialHealth() => _initialHealthPoints;
+        public float GetInitialHealth() => initialHealthPoints;
 
         /// <returns>Return health points</returns>
         public float GetHealthPoints() => _healthPoints;
 
         /// <returns>Return health max points</returns>
-        public float GetMaxHealthPoints() => _initialHealthPoints;
+        public float GetMaxHealthPoints() => initialHealthPoints;
 
         /// <returns>If is dead</returns>
-        public bool IsDead() => _isDead;
+        public bool IsDead() => isDead;
 
         public virtual void Die(string animatorStringDeath)
         {
             //dead
-            if (_isDead) return;
-            _isDead = true;
+            if (isDead) return;
+            isDead = true;
 
             //animator
             /*Animator animator = GetComponent<Animator>();
