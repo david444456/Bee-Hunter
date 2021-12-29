@@ -901,6 +901,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -971,6 +975,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1189,6 +1197,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 1163990531325221486, guid: 9821d4ba0824ab243abd71f35046797b, type: 3}
+    - target: {fileID: 6362248997046112954, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6362248997046112955, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1663,6 +1675,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 1163990531325221486, guid: 9821d4ba0824ab243abd71f35046797b, type: 3}
+    - target: {fileID: 6362248997046112954, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6362248997046112955, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1985,6 +2001,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2893,6 +2913,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3205,6 +3229,10 @@ PrefabInstance:
     - target: {fileID: 6362248997046112953, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_Name
       value: SpawnBee (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362248997046112954, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6362248997046112955, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_RootOrder
@@ -3718,6 +3746,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6006,6 +6038,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6824,6 +6860,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 1163990531325221486, guid: a6582bac74facdd42903e727895724f7, type: 3}
+    - target: {fileID: 6362248997046112954, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6362248997046112955, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7185,6 +7225,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 6211316653624026614, guid: 927964b8a2b373d42b48ff1ef3077c95, type: 3}
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -7839,6 +7883,10 @@ PrefabInstance:
       propertyPath: _prefabToSpawn
       value: 
       objectReference: {fileID: 1163990531325221486, guid: 9821d4ba0824ab243abd71f35046797b, type: 3}
+    - target: {fileID: 6362248997046112954, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6362248997046112955, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -8860,6 +8908,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 395739524}
     m_Modifications:
+    - target: {fileID: 3603192607446273210, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3603192607446273211, guid: 01cc91329db437b4a9715aa03adb8d80, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9014,6 +9066,10 @@ PrefabInstance:
     - target: {fileID: 6362248997046112953, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_Name
       value: SpawnBee
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362248997046112954, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
+      propertyPath: _indexItemToSpawn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6362248997046112955, guid: 9e0a6293aa77c7440a0e8c2aee37a014, type: 3}
       propertyPath: m_RootOrder
